@@ -8,25 +8,19 @@ const Navbar = () => {
   const Menu = () => (
     <>
       <a
-        href="#home"
-        className="hover:bg-[#032cfc] hover:text-white py-2 px-4 rounded-md"
-      >
-        Home
-      </a>
-      <a
-        href="#about"
+        href="/about"
         className="hover:bg-[#032cfc] hover:text-white py-2 px-4 rounded-md"
       >
         About
       </a>
       <a
-        href="#skills"
+        href="/skills"
         className="hover:bg-[#032cfc] hover:text-white py-2 px-4 rounded-md"
       >
         Skills
       </a>
       <a
-        href="#projects"
+        href="/projects"
         className="hover:bg-[#032cfc] hover:text-white py-2 px-4 rounded-md"
       >
         Projects

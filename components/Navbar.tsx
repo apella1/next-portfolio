@@ -53,9 +53,9 @@ const Navbar = () => {
     setIsNavOpen(!isNavOpen);
   };
   return (
-    <nav className="flex items-center justify-between px-4 2xl:px-52 md:px-16 lg:px-28 py-4">
+    <nav className="flex items-center justify-between px-4 2xl:px-52 md:px-16 lg:px-28 py-4 font-poppins">
       <section>
-        <p className="text-2xl font-bold">John Apella</p>
+        <p className="text-2xl font-bold font-poppins">John Apella</p>
       </section>
       {/* menu */}
       <section>

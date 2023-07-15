@@ -33,7 +33,7 @@ const Navbar = () => {
       </a>
       <a
         href="https://github.com/apella1"
-        className="hover:bg-[#032cfc] hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-black p-4"
+        className="hover:bg-[#032cfc] hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
       >
         <DiGithubBadge className="text-2xl" />
         <p>Github</p>
@@ -41,7 +41,7 @@ const Navbar = () => {
 
       <a
         href="https://linkedin.com/in/john-apella"
-        className="hover:bg-[#032cfc] hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-black p-4"
+        className="hover:bg-[#032cfc] hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
       >
         <FiLinkedin />
         <p>LinkedIn</p>
@@ -55,7 +55,7 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-between px-4 2xl:px-52 md:px-16 lg:px-28 py-4">
       <section>
-        <p className="text-2xl">John Apella</p>
+        <p className="text-2xl font-bold">John Apella</p>
       </section>
       {/* menu */}
       <section>

@@ -36,7 +36,10 @@ const Footer = () => {
           <SiWhatsapp />
         </a>
       </div>
-      <p className="self-center p-2">&copy; {thisYear} - John Apella</p>
+      <div className="flex items-center space-x-4">
+        <p className="self-center p-2">&copy; {thisYear} - John Apella</p>
+        <p className="self-center p-2">All Rights Reserved</p>
+      </div>
     </footer>
   );
 };

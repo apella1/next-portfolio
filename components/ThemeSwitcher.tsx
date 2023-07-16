@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { CiDark } from "react-icons/ci";
-import { BsSun } from "react-icons/bs";
+import { BsMoonFill, BsSun } from "react-icons/bs";
 
 const ThemeSwitcher = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -33,7 +32,7 @@ const ThemeSwitcher = () => {
       {isDarkMode ? (
         <BsSun className="text-3xl text-[#ffd700]" />
       ) : (
-        <CiDark className="text-3xl text-[#1a202c]" />
+        <BsMoonFill className="text-2xl text-[#1a202c]" />
       )}
     </button>
   );

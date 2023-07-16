@@ -1,11 +1,11 @@
-import { Footer, Navbar } from "@/components";
-import RootLayout from "../layout";
+import { Footer, Navbar, Projects } from "@/components";
 
-export default function Projects() {
+export default function ProjectsView() {
   return (
     <main>
       <Navbar />
       <hr />
+      <Projects />
       <Footer />
     </main>
   );

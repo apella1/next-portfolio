@@ -1,5 +1,11 @@
-import RootLayout from "../layout";
+import { Navbar, Footer } from "@/components";
 
 export default function About() {
-  return <h1>About</h1>;
+  return (
+    <main>
+      <Navbar />
+      <hr />
+      <Footer />
+    </main>
+  );
 }

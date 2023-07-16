@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { DiGithubBadge } from "react-icons/di";
 import { FiLinkedin } from "react-icons/fi";
-import { RiCloseLine, RiMenuLine } from "react-icons/ri";
+import { RiCloseLine, RiMenu4Line, RiMenuLine } from "react-icons/ri";
 
 const Navbar = () => {
   const Menu = () => (
@@ -53,21 +53,27 @@ const Navbar = () => {
     setIsNavOpen(!isNavOpen);
   };
   return (
-    <nav className="flex items-center justify-between px-4 2xl:px-52 md:px-16 lg:px-28 py-4 font-poppins">
+    <nav className="flex items-center justify-between px-4 2xl:px-52 sm:px-16 lg:px-28 py-8 md:py-4 font-poppins">
       <section>
         <p className="text-2xl font-bold font-poppins">John Apella</p>
       </section>
       {/* menu */}
       <section>
-        <div className="hidden md:flex md:items-center md:space-x-4">
+        <div className="hidden lg:flex lg:items-center lg:space-x-4">
           <Menu />
         </div>
         {/* mobile menu icons */}
-        <div className="z-10 inline-block md:hidden">
+        <div className="block lg:hidden">
           {isNavOpen ? (
-            <RiCloseLine color="white" size={30} onClick={toggleNavbar} />
+            <RiCloseLine
+              className="text-black text-3xl"
+              onClick={toggleNavbar}
+            />
           ) : (
-            <RiMenuLine color="white" size={30} onClick={toggleNavbar} />
+            <RiMenu4Line
+              className="text-black text-3xl"
+              onClick={toggleNavbar}
+            />
           )}
         </div>
         {/* mobile menu */}
@@ -75,7 +81,7 @@ const Navbar = () => {
           className={
             !isNavOpen
               ? "hidden"
-              : "flex absolute inset-0 w-full h-screen z-{1} flex-col items-center justify-center bg-[#23272F] space-y-2"
+              : "flex absolute inset-0 w-full h-screen z-{1} flex-col items-center pt-40 bg-white space-y-2"
           }
         >
           <Menu />

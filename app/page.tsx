@@ -1,10 +1,13 @@
+import { Footer, Navbar } from "@/components";
 import { HomeHeader } from "@/components/home";
-import RootLayout from "./layout";
 
 export default function Home() {
   return (
     <main className="">
+      <Navbar />
+      <hr />
       <HomeHeader />
+      <Footer />
     </main>
   );
 }

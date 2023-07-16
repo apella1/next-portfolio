@@ -27,13 +27,14 @@ const Navbar = () => {
         Projects
       </a>
       <a
-        href="#contact"
+        href="/blog"
         className="hover:bg-[#032cfc] hover:text-white py-2 px-4 rounded-md"
       >
-        Contact
+        Blog
       </a>
       <a
         href="https://github.com/apella1"
+        target="_blank"
         className="hover:bg-[#032cfc] hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
       >
         <DiGithubBadge className="text-2xl" />
@@ -41,7 +42,8 @@ const Navbar = () => {
       </a>
 
       <a
-        href="https://linkedin.com/in/john-apella"
+        href="https://linkedin.com/in/johnapella"
+        target="_blank"
         className="hover:bg-[#032cfc] hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
       >
         <FiLinkedin />

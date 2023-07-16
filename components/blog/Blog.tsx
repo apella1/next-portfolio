@@ -24,7 +24,7 @@ const Blog = () => {
           <span>
             Hang tight. I'm whipping up something for you to geek out.
           </span>
-          <span>Coming your way real soon! 🚀</span>
+          <span className="italic">Coming your way real soon! 🚀</span>
         </p>
       </div>
     </section>

@@ -56,7 +56,9 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-between px-4 2xl:px-52 sm:px-16 lg:px-28 py-8 md:py-4 font-poppins">
       <section>
-        <p className="text-2xl font-bold font-poppins">John Apella</p>
+        <a href="/" className="text-2xl font-bold font-poppins">
+          John Apella
+        </a>
       </section>
       {/* menu */}
       <section className="flex items-center space-x-2 lg:space-x-4">

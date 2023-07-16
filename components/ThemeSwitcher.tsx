@@ -31,9 +31,9 @@ const ThemeSwitcher = () => {
   return (
     <button onClick={toggleTheme}>
       {isDarkMode ? (
-        <BsSun className="text-3xl" />
+        <BsSun className="text-3xl text-[#ffd700]" />
       ) : (
-        <CiDark className="text-3xl" />
+        <CiDark className="text-3xl text-[#1a202c]" />
       )}
     </button>
   );

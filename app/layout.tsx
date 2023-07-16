@@ -1,13 +1,13 @@
-import { Footer, Navbar } from "@/components";
-import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "John Apella | Frontend Software Engineer | TypeScript Wizard",
   description:
-    "Skilled Frontend Software Engineer specializing in React, Next.js and TypeScript. Experienced in building modern web applications with a strong focus on creating seamless user experiences. Passionate about delivering high-quality code and staying updated with the latest technologies. Ready to drive project success with my expertise and collaborative mindset.",
+    "Skilled Frontend Software Engineer specialized in React, Next.js and TypeScript. Experienced in building modern web applications with a strong focus on creating seamless user experiences. Passionate about delivering high-quality code and staying updated with the latest technologies. Ready to drive project success with my expertise and collaborative mindset.",
 };
 
 export default function RootLayout({
@@ -17,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

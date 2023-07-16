@@ -1,10 +1,11 @@
-import { Navbar, Footer } from "@/components";
+import { Navbar, Footer, About } from "@/components";
 
-export default function About() {
+export default function AboutView() {
   return (
     <main>
       <Navbar />
       <hr />
+      <About />
       <Footer />
     </main>
   );

@@ -1,10 +1,11 @@
-import { Navbar, Footer } from "@/components";
+import { Navbar, Footer, Skills } from "@/components";
 
-export default function Skills() {
+export default function SkillsView() {
   return (
     <main>
       <Navbar />
       <hr />
+      <Skills />
       <Footer />
     </main>
   );

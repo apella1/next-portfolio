@@ -3,6 +3,7 @@ import { useState } from "react";
 import { DiGithubBadge } from "react-icons/di";
 import { FiLinkedin } from "react-icons/fi";
 import { RiCloseLine, RiMenu4Line, RiMenuLine } from "react-icons/ri";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const Navbar = () => {
   const Menu = () => (
@@ -58,7 +59,7 @@ const Navbar = () => {
         <p className="text-2xl font-bold font-poppins">John Apella</p>
       </section>
       {/* menu */}
-      <section>
+      <section className="flex items-center space-x-2 lg:space-x-4">
         <div className="hidden lg:flex lg:items-center lg:space-x-4">
           <Menu />
         </div>
@@ -86,6 +87,7 @@ const Navbar = () => {
         >
           <Menu />
         </div>
+        <ThemeSwitcher />
       </section>
     </nav>
   );

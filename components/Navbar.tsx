@@ -10,32 +10,32 @@ const Navbar = () => {
     <>
       <a
         href="/about"
-        className="hover:bg-[#032cfc] hover:text-white py-2 px-4 rounded-md"
+        className="hover:bg-[#076115] hover:text-white py-2 px-4 rounded-md"
       >
         About
       </a>
       <a
         href="/skills"
-        className="hover:bg-[#032cfc] hover:text-white py-2 px-4 rounded-md"
+        className="hover:bg-[#076115] hover:text-white py-2 px-4 rounded-md"
       >
         Skills
       </a>
       <a
         href="/projects"
-        className="hover:bg-[#032cfc] hover:text-white py-2 px-4 rounded-md"
+        className="hover:bg-[#076115] hover:text-white py-2 px-4 rounded-md"
       >
         Projects
       </a>
       <a
         href="/blog"
-        className="hover:bg-[#032cfc] hover:text-white py-2 px-4 rounded-md"
+        className="hover:bg-[#076115] hover:text-white py-2 px-4 rounded-md"
       >
         Blog
       </a>
       <a
         href="https://github.com/apella1"
         target="_blank"
-        className="hover:bg-[#032cfc] hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
+        className="hover:bg-[#076115] hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
       >
         <DiGithubBadge className="text-2xl" />
         <p>Github</p>
@@ -44,7 +44,7 @@ const Navbar = () => {
       <a
         href="https://linkedin.com/in/johnapella"
         target="_blank"
-        className="hover:bg-[#032cfc] hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
+        className="hover:bg-[#076115] hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
       >
         <FiLinkedin />
         <p>LinkedIn</p>

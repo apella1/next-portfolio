@@ -68,15 +68,15 @@ const Navbar = () => {
           <Menu />
         </div>
         {/* mobile menu icons */}
-        <div className="block lg:hidden">
+        <div className="z-10 block lg:hidden">
           {isNavOpen ? (
             <RiCloseLine
-              className="text-black text-3xl"
+              className="text-green-600 text-3xl absolute top-[1em] left-[2em]"
               onClick={toggleNavbar}
             />
           ) : (
             <RiMenu4Line
-              className="text-black text-3xl"
+              className="text-green-600 text-3xl"
               onClick={toggleNavbar}
             />
           )}
@@ -86,7 +86,7 @@ const Navbar = () => {
           className={
             !isNavOpen
               ? "hidden"
-              : "flex absolute inset-0 w-full h-screen z-{1} flex-col items-center pt-40 bg-white space-y-2"
+              : "flex absolute inset-0 w-full h-screen z-{1} flex-col items-center pt-40 bg-[#1a202c] space-y-2 text-white"
           }
         >
           <Menu />

@@ -41,11 +41,19 @@ const Footer = () => {
         <p className="self-center lg:p-2">All Rights Reserved</p>
         <p className="self-center text-center">
           Web illustrations by{" "}
-          <a href="https://storyset.com/web" className="text-green-500">
+          <a
+            href="https://storyset.com/web"
+            target="_blank"
+            className="text-green-500"
+          >
             Storyset
           </a>{" "}
           and{" "}
-          <a href="https://www.opendoodles.com/" className="text-green-500">
+          <a
+            href="https://www.opendoodles.com/"
+            target="_blank"
+            className="text-green-500"
+          >
             Open Doodles
           </a>
         </p>

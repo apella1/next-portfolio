@@ -56,15 +56,16 @@ const Navbar = () => {
     setIsNavOpen(!isNavOpen);
   };
   return (
-    <nav className="flex items-center justify-between px-4 2xl:px-52 sm:px-16 lg:px-28 py-8 md:py-4 font-poppins">
+    <nav className="flex items-center justify-between px-4 2xl:px-52 sm:px-16 xl:px-28 py-8 md:py-4 font-poppins">
       <section>
         <a href="/" className="text-2xl font-bold font-poppins">
           John Apella
+          <span className="text-4xl font-black text-green-500">.</span>
         </a>
       </section>
       {/* menu */}
       <section className="flex items-center space-x-2 lg:space-x-4">
-        <div className="hidden lg:flex lg:items-center lg:space-x-4">
+        <div className="hidden lg:flex lg:items-center lg:space-x-2 xl:space-x-4">
           <Menu />
         </div>
         {/* mobile menu icons */}

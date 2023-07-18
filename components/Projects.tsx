@@ -1,13 +1,12 @@
-import React from "react";
-import ProjectCard, { Project } from "./ProjectCard";
-import Image from "next/image";
 import Doggie from "@/public/doggie.png";
+import Image from "next/image";
+import ProjectCard, { Project } from "./ProjectCard";
 
 const projects: Project[] = [];
 
 const Projects = () => {
   return (
-    <section className="h-screen overflow-auto px-4 sm:px-16 lg:px-28 2xl:px-52 py-8 flex flex-col">
+    <section className="h-screen overflow-auto px-4 sm:px-16 xl:px-28 2xl:px-52 py-8 flex flex-col">
       <div className="space-y-2 pt-6 pb-8 md:space-y-5">
         <h1 className="text-4xl text-green-700 font-extrabold font-poppins leading-9 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
           Projects

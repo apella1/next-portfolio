@@ -1,4 +1,4 @@
-import { Footer, Navbar, Projects } from "@/components";
+import { Projects } from "@/components";
 
 export default function ProjectsView() {
   return (

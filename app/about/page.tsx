@@ -1,4 +1,4 @@
-import { Navbar, Footer, About } from "@/components";
+import { About } from "@/components";
 
 export default function AboutView() {
   return (

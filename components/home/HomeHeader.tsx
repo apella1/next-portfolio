@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const HomeHeader = () => {
   return (
-    <header className="flex flex-col space-y-8 lg:space-y-0 lg:flex-row lg:space-x-4 px-4 sm:px-16 xl:px-28 2xl:px-52 py-8 lg:py-28 min-h-screen">
+    <header className="flex flex-col space-y-8 lg:space-y-0 lg:flex-row lg:space-x-4 px-4 sm:px-16 xl:px-28 2xl:px-52 py-8 lg:py-28">
       <div className="lg:basis-1/2">
         <Image src={Programming} alt="" className="w-[600px]" />
       </div>

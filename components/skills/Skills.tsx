@@ -259,7 +259,7 @@ const Skills = () => {
           <p className="xl:text-2xl font-semibold text-center">
             Coding Activity
           </p>
-          <div className="sm:w-[400px] self-center xl:w-[400px]">
+          <div className="w-[350px] sm:w-[400px] self-center xl:w-[400px]">
             <figure>
               <embed src="https://wakatime.com/share/@apella/99b28e19-3765-4df8-b982-35fadce51143.svg"></embed>
             </figure>

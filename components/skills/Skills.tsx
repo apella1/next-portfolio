@@ -3,7 +3,7 @@ import Image from "next/image";
 const Skills = () => {
   return (
     <section className="min-h-screen overflow-auto px-4 sm:px-16 xl:px-28 2xl:px-52 py-8 2xl:py-12 flex flex-col">
-      <h1 className="text-4xl text-green-700 font-extrabold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 pb-12">
+      <h1 className="text-4xl text-green-700 font-bold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 pb-12">
         Skills
       </h1>
       <div className="pb-12">

@@ -9,7 +9,7 @@ const HomeHeader = () => {
       </div>
       <div className="lg:basis-1/2 flex flex-col space-y-3 xl:space-y-6">
         <h1 className="self-center text-center font-extrabold mx-8 lg:mx-0 text-2xl sm:text-3xl xl:text-5xl font-inter">
-          Frontend Software Engineer
+          Software Engineer
         </h1>
         <div className="self-center font-poppins text-lg xl:text-xl px-8 flex flex-col space-y-4 text-center">
           <p className="">

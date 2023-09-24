@@ -1,54 +1,57 @@
 "use client";
+import { MenuItem } from "@/utils/types";
 import { useState } from "react";
-import { DiGithubBadge } from "react-icons/di";
-import { FiLinkedin } from "react-icons/fi";
-import { RiCloseLine, RiMenu4Line, RiMenuLine } from "react-icons/ri";
+import { RiCloseLine, RiMenu4Line } from "react-icons/ri";
 import ThemeSwitcher from "./ThemeSwitcher";
+import { usePathname } from "next/navigation";
+
+const menuItems: MenuItem[] = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "About",
+    href: "/about",
+  },
+  {
+    name: "Technologies",
+    href: "/technologies",
+  },
+  {
+    name: "Projects",
+    href: "/projects",
+  },
+  {
+    name: "Blog",
+    href: "/blog",
+  },
+];
 
 const Navbar = () => {
+  const pathname = usePathname();
   const Menu = () => (
     <>
-      <a
-        href="/about"
-        className="hover:bg-[#076115] hover:text-white py-2 px-4 rounded-md"
-      >
-        About
-      </a>
-      <a
-        href="/skills"
-        className="hover:bg-[#076115] hover:text-white py-2 px-4 rounded-md"
-      >
-        Skills
-      </a>
-      <a
-        href="/projects"
-        className="hover:bg-[#076115] hover:text-white py-2 px-4 rounded-md"
-      >
-        Projects
-      </a>
-      <a
-        href="/blog"
-        className="hover:bg-[#076115] hover:text-white py-2 px-4 rounded-md"
-      >
-        Blog
-      </a>
-      <a
-        href="https://github.com/apella1"
-        target="_blank"
-        className="hover:bg-[#076115] hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
-      >
-        <DiGithubBadge className="text-2xl" />
-        <p>Github</p>
-      </a>
-
-      <a
-        href="https://linkedin.com/in/johnapella"
-        target="_blank"
-        className="hover:bg-[#076115] hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
-      >
-        <FiLinkedin />
-        <p>LinkedIn</p>
-      </a>
+      {menuItems.map((item, index) => (
+        <div
+          key={index}
+          className={`flex items-center justify-center ${
+            item.href === pathname ? "px-[1px]" : "px-4"
+          }`}
+        >
+          <a
+            href={item.href}
+            className={`hover:decoration-[#076115] hover:underline hover:decoration-[4px] hover:underline-offset-4 hover:text-white py-2 rounded-md`}
+          >
+            {item.name}
+          </a>
+          {item.href === pathname && (
+            <div className="self-center text-2xl font-black text-green-500">
+              .
+            </div>
+          )}
+        </div>
+      ))}
     </>
   );
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -56,14 +59,7 @@ const Navbar = () => {
     setIsNavOpen(!isNavOpen);
   };
   return (
-    <nav className="flex items-center justify-between px-4 2xl:px-52 sm:px-16 xl:px-28 py-8 md:py-4 font-poppins">
-      <section>
-        <a href="/" className="text-2xl font-bold font-poppins">
-          John Apella
-          <span className="text-4xl font-black text-green-500">.</span>
-        </a>
-      </section>
-      {/* menu */}
+    <nav className="flex items-center px-4 py-8 2xl:px-72 sm:px-16 xl:px-28 md:py-4 font-poppins">
       <section className="flex items-center space-x-2 lg:space-x-4">
         <div className="hidden lg:flex lg:items-center lg:space-x-2 xl:space-x-4">
           <Menu />
@@ -77,7 +73,7 @@ const Navbar = () => {
             />
           ) : (
             <RiMenu4Line
-              className="text-green-600 text-3xl"
+              className="text-3xl text-green-600"
               onClick={toggleNavbar}
             />
           )}

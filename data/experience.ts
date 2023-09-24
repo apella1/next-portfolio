@@ -8,33 +8,9 @@ export const experiences: ExperienceProps[] = [
     startDate: "2023-04-01",
     endDate: "Present",
     achievements: [
-      "Implemented a new feature",
-      "Improved performance of existing code",
-      "Collaborated with cross-functional teams",
-    ],
-  },
-  {
-    company: "XYZ Corp",
-    companyUrl: "https://theafricablockchaincenter.com/",
-    role: "Product Manager",
-    startDate: "2021-08-15",
-    endDate: "2023-02-28",
-    achievements: [
-      "Launched a successful product",
-      "Managed a team of 10 members",
-      "Improved customer satisfaction",
-    ],
-  },
-  {
-    company: "Tech Solutions Ltd.",
-    companyUrl: "https://theafricablockchaincenter.com/",
-    role: "UI/UX Designer",
-    startDate: "2020-03-10",
-    endDate: "2021-11-30",
-    achievements: [
-      "Redesigned the company website",
-      "Created interactive prototypes",
-      "Received positive client feedback",
+      "Acted as a key contributor in the development of the pioneering Africa Women Of Web3 initiative platform.",
+      "Led the implementation of the redesign of the Afyalife Foundation's website, enhancing its visual appeal, user experience, and overall performance.",
+      "Successfully migrated Cryptip website's code base from JavaScript to TypeScript, improving code maintainability and reducing the likelihood of runtime errors.",
     ],
   },
 ];

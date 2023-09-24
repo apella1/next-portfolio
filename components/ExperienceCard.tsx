@@ -36,27 +36,22 @@ const ExperienceCard = ({ experience }: { experience: ExperienceProps }) => {
 
   return (
     <div className="rounded-lg shadow-md p-6 flex flex-col space-y-3">
-      <a
-        href={companyUrl}
-        target="_blank"
-        className="text-xl font-semibold underline underline-offset-8 decoration-green-600"
-      >
+      <a href={companyUrl} target="_blank" className="text-xl font-bold">
         {company}
       </a>
-      <p className="text-gray-600">{role}</p>
+      <p className="">{role}</p>
       <div>
         <div className="flex flex-col lg:flex-row lg:space-x-4">
-          <p className="text-gray-600">
-            <span className="italic font-medium text-gray-700">From: </span>
+          <p className="">
+            <span className="italic font-medium">From: </span>
             {startDate}
           </p>
-          <p className="text-gray-600">
-            <span className="italic font-medium text-gray-700">To: </span>
+          <p className="">
+            <span className="italic font-medium">To: </span>
             {endDate}
           </p>
         </div>
-
-        <p className="text-gray-600">Duration: {duration}</p>
+        <p className="">Duration: {duration}</p>
       </div>
       <div className="mt-4">
         <h4 className="text-lg font-semibold">Achievements:</h4>

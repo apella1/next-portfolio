@@ -1,6 +1,8 @@
 import { SocialIcon } from "@/utils/types";
+import Image from "next/image";
 import { DiGithubBadge } from "react-icons/di";
 import { FiLinkedin } from "react-icons/fi";
+import profilePic from "@/public/profile.webp";
 
 const socialIcons: SocialIcon[] = [
   {
@@ -23,7 +25,19 @@ const socialIcons: SocialIcon[] = [
 const HomeHeader = () => {
   return (
     <header className="flex flex-col px-4 py-8 space-y-8 lg:space-y-8 sm:px-16 xl:px-28 2xl:px-72 lg:py-28">
-      <div className="flex items-center space-x-3">
+      <section className="px-4">
+        <div className="rounded-full border-[4px] border-blue-400 w-fit">
+          <Image src={profilePic} alt="" className="rounded-full w-44" />
+        </div>
+      </section>
+      <div className="px-4 flex flex-col space-y-4">
+        <p className="text-4xl leading-[36px] font-medium">Hi, I'm John, a software engineer specializing in API design and development.</p>
+        <p className="text-2xl leading-5">
+          Welcome to my site where I share and write about the products I build
+          and the tools I work with daily.
+        </p>
+      </div>
+      <div className="flex items-center space-x-3 px-4">
         {socialIcons.map((socialIcon, index) => (
           <a
             href={socialIcon.href}
@@ -35,12 +49,6 @@ const HomeHeader = () => {
             <p>{socialIcon.name}</p>
           </a>
         ))}
-      </div>
-      <div className="flex flex-col space-y-3 xl:space-y-6">
-        <h1 className="self-center mx-8 text-2xl font-extrabold text-center lg:mx-0 sm:text-3xl xl:text-5xl font-inter">
-    hello
-        </h1>
-        <div className="flex flex-col self-center px-8 space-y-4 text-lg text-center font-poppins xl:text-xl"></div>
       </div>
     </header>
   );

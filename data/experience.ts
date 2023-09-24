@@ -13,4 +13,16 @@ export const experiences: ExperienceProps[] = [
       "Successfully migrated Cryptip website's code base from JavaScript to TypeScript, improving code maintainability and reducing the likelihood of runtime errors.",
     ],
   },
+  {
+    company: "Zima",
+    companyUrl: "",
+    role: "Software Engineer",
+    startDate: "2022-08-01",
+    endDate: "2023-04-01",
+    achievements: [
+      "Led the development of a platform to support mental health awareness and to provide tools for self-care.",
+      "Utilized React to develop the front-end of the platform, and Express.js to develop the back-end.",
+      "Implemented REST APIs to enable the front-end to communicate with the back-end.",
+    ],
+  },
 ];

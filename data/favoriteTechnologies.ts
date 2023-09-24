@@ -61,6 +61,12 @@ export const favoriteTechnologies: FavoriteTechnology[] = [
     imgAlt: "Django",
     href: "https://www.djangoproject.com/",
   },
+  {
+    imgSrc:
+      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/docker-colored.svg",
+    imgAlt: "Docker",
+    href: "https://www.docker.com/",
+  },
 ];
 
 const technologiesStore = [
@@ -123,12 +129,6 @@ const technologiesStore = [
       "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/aws-colored.svg",
     imgAlt: "Amazon Web Services",
     href: "https://aws.amazon.com",
-  },
-  {
-    imgSrc:
-      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/docker-colored.svg",
-    imgAlt: "Docker",
-    href: "https://www.docker.com/",
   },
   {
     imgSrc:

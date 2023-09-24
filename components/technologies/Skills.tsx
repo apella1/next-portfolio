@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const Skills = () => {
   return (
-    <section className="min-h-screen overflow-auto px-4 sm:px-16 xl:px-28 2xl:px-72 py-8 2xl:py-12 flex flex-col">
+    <section className="h-full overflow-auto px-4 sm:px-16 xl:px-28 2xl:px-72 py-8 2xl:py-12 flex flex-col">
       <h1 className="text-4xl text-green-700 font-bold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:text-4xl md:leading-14 pb-12">
-        Favorite Technologies and Tools
+        Technologies and Tools I Use
       </h1>
       <div className="pb-12">
         <p className="flex gap-2 flex-wrap">
@@ -53,7 +53,7 @@ const Skills = () => {
           <p className="xl:text-2xl font-semibold text-center">
             Operating Systems
           </p>
-          <div className="w-[350px] mobile:w-[400px] self-center xl:w-[400px]">
+          <div className="w-[800px]">
             <figure>
               <embed src="https://wakatime.com/share/@apella/b456c7f1-e1c4-43a5-8ece-a04ff7c573bb.svg"></embed>
             </figure>
@@ -63,7 +63,7 @@ const Skills = () => {
           <p className="xl:text-2xl font-semibold text-center">
             Coding Activity
           </p>
-          <div className="w-[350px] mobile:w-[400px] self-center xl:w-[400px]">
+          <div className="w-[800px]">
             <figure>
               <embed src="https://wakatime.com/share/@apella/99b28e19-3765-4df8-b982-35fadce51143.svg"></embed>
             </figure>

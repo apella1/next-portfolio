@@ -31,7 +31,10 @@ const HomeHeader = () => {
         </div>
       </section>
       <div className="px-4 flex flex-col space-y-4">
-        <p className="text-4xl leading-[36px] font-medium">Hi, I'm John, a software engineer specializing in API design and development.</p>
+        <p className="text-[30px] leading-[36px] font-medium font-poppins">
+          Hi, I'm John, a software engineer specializing in API design and
+          development.
+        </p>
         <p className="text-2xl leading-5">
           Welcome to my site where I share and write about the products I build
           and the tools I work with daily.

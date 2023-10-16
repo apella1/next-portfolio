@@ -33,3 +33,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Contentlayer - ensuring each build will have the latest generted data
+.contentlayer

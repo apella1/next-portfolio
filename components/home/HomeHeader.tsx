@@ -24,7 +24,7 @@ const socialIcons: SocialIcon[] = [
 
 const HomeHeader = () => {
   return (
-    <header className="flex flex-col px-4 py-8 space-y-8 lg:space-y-8 sm:px-16 xl:px-28 2xl:px-72 lg:py-28">
+    <header className="flex flex-col px-4 py-8 space-y-8 lg:space-y-8 sm:px-16 xl:px-28 2xl:px-72">
       <section className="px-4">
         <div className="rounded-full border-[4px] border-blue-400 w-fit">
           <Image src={profilePic} alt="" className="rounded-full w-44" />
@@ -35,7 +35,7 @@ const HomeHeader = () => {
           Hi, I'm John, a software engineer specializing in API design and
           development.
         </p>
-        <p className="text-2xl leading-5">
+        <p className="text-2xl leading-8">
           Welcome to my site where I share and write about the products I build
           and the tools I work with daily.
         </p>

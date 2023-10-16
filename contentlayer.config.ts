@@ -1,7 +1,7 @@
 import { makeSource, defineDocumentType } from "@contentlayer/source-files";
 
-const Blog = defineDocumentType(() => ({
-  name: "Blog",
+export const Post = defineDocumentType(() => ({
+  name: "Post",
   filePathPattern: "**/*.mdx",
   fields: {
     title: {
@@ -40,11 +40,11 @@ const Blog = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (doc) => `/blogs${doc._raw.flattenedPath}`,
+      resolve: (post) => `/posts/${post._raw.flattenedPath}`,
     },
   },
 }));
 export default makeSource({
   contentDirPath: "posts",
-  documentTypes: [Blog],
+  documentTypes: [Post],
 });

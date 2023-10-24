@@ -7,7 +7,7 @@ const RecentPosts = () => {
     compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
   );
   return (
-    <section className="flex flex-col px-4 space-y-4 sm:px-16 xl:px-28 2xl:px-72">
+    <section className="flex flex-col px-4 pt-16 space-y-4 sm:px-16 xl:px-28 2xl:px-72">
       <h1 className="text-3xl font-bold">
           Recent Posts
       </h1>

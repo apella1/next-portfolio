@@ -27,6 +27,7 @@ export const Post = defineDocumentType(() => ({
     isPublished: {
       type: "boolean",
       default: false,
+      required: true,
     },
     author: {
       type: "string",

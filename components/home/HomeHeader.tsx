@@ -24,20 +24,19 @@ const socialIcons: SocialIcon[] = [
 
 const HomeHeader = () => {
   return (
-    <header className="flex flex-col px-4 pt-8 pb-28 space-y-6 lg:space-y-8 sm:px-16 xl:px-28 2xl:px-72">
+    <header className="flex flex-col px-4 py-8 space-y-6 lg:space-y-8 sm:px-16 xl:px-28 2xl:px-72">
       <section className="px-4">
         <div className="rounded-full border-[4px] border-blue-400 w-fit">
           <Image src={profilePic} alt="" className="rounded-full w-44" />
         </div>
       </section>
-      <div className="px-4 flex flex-col space-y-2 font-poppins">
+      <div className="px-4 flex flex-col space-y-1 font-poppins">
         <p className="text-[20px] leading-[36px] font-medium">
           Hi, I'm John, a software engineer specializing in API design and
           development.
         </p>
-        <p className="text-[20px] leading-[36px]">
-          Welcome to my site where I share and write about the products I build
-          and the tools I work with daily.
+        <p className="text-[20px] leading-[36px] font-medium">
+          Welcome to my site where I share what I'm learning in my growth as a software engineer.
         </p>
       </div>
       <div className="flex items-center space-x-3 px-4">

@@ -5,9 +5,11 @@ import { compareDesc } from "date-fns";
 import PostCard from "./PostCard";
 
 const Blog = () => {
-  const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
-  );
+  const posts = allPosts
+    .filter((post) => post.isPublished)
+    .sort((a, b) =>
+      compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
+    );
 
   return (
     <section className="min-h-screen overflow-auto px-4 sm:px-16 xl:px-28 2xl:px-72 py-8 flex flex-col">

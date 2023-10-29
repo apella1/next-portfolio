@@ -3,8 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProjectCard = ({ project }: { project: Project }) => {
-  const { title, imgSrc, deploymentHref, description, sourceCodeHref } =
-    project;
+  const {
+    title,
+    imgSrc,
+    deploymentHref,
+    description,
+    sourceCodeHref,
+    techStack,
+  } = project;
   return (
     <section
       className={`${
@@ -50,6 +56,13 @@ const ProjectCard = ({ project }: { project: Project }) => {
           )}
         </h2>
         <p className="text-[16px] leading-[22px]">{description}</p>
+        <div className="flex flex-wrap items-center gap-2">
+          {techStack.map((stack, index) => (
+            <p className="text-[14px] leading-[18px] font-medium opacity-50" key={index}>
+              {stack.toUpperCase()}
+            </p>
+          ))}
+        </div>
         <div className="flex items-center space-x-4 pb-4">
           {deploymentHref && (
             <Link

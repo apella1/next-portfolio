@@ -23,4 +23,5 @@ export type Project = {
   deploymentHref?: string;
   sourceCodeHref?: string;
   description: string;
+  techStack: string[];
 };

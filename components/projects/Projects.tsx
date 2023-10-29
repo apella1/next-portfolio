@@ -11,12 +11,14 @@ const Projects = () => {
           Projects
         </h1>
         {projects.length > 0 && (
-          <p className="text-lg leading-7">Some of the projects I've worked on.</p>
+          <p className="text-lg leading-7">
+            Some of the projects I've worked on.
+          </p>
         )}
       </div>
       <div className="py-4 flex self-center">
         {projects.length > 0 ? (
-          <div className="flex flex-col space-y-4 md:grid md:grid-cols-2 md:gap-4 xl:grid-cols-3">
+          <div className="flex flex-col space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-4 xl:grid-cols-3">
             {projects.map((project) => (
               <ProjectCard key={project.title} project={project} />
             ))}

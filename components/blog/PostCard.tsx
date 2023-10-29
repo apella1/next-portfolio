@@ -6,10 +6,7 @@ const PostCard = ({ post }: { post: Post }) => {
   return (
     <div className="flex flex-col space-y-3">
       <h2 className="text-[20px] text-blue-400">
-        <Link
-          href={post.url}
-          className=""
-        >
+        <Link href={post.url} className="">
           {post.title}
         </Link>
       </h2>

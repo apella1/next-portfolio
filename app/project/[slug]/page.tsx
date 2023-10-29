@@ -1,15 +1,16 @@
 import { format, parseISO } from "date-fns";
-import { allPosts } from "contentlayer/generated";
+import { allProjects } from "contentlayer/generated";
 import Image from "next/image";
 
 export const generateStaticParams = async () =>
-  allPosts.map((post) => ({
-    slug: post._raw.flattenedPath.replace(/posts\/?/, ""),
+  allProjects.map((project) => ({
+    slug: project._raw.flattenedPath.replace(/projects\/?/, ""),
   }));
 
-export default function Post({ params }: { params: { slug: string } }) {
-  const post = allPosts.find(
-    (post) => post._raw.flattenedPath.replace(/posts\/?/, "") === params.slug
+export default function Project({ params }: { params: { slug: string } }) {
+  const post = allProjects.find(
+    (project) =>
+      project._raw.flattenedPath.replace(/projects\/?/, "") === params.slug
   );
   if (!post) {
     throw new Error(`Post not found for slug: ${params.slug}`);
@@ -21,7 +22,7 @@ export default function Post({ params }: { params: { slug: string } }) {
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold">{post.title}</h1>
           <Image
-            src={post.image}
+            src={post.imgSrc}
             alt=""
             width={400}
             height={400}

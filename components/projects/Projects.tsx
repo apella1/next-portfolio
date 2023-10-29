@@ -1,9 +1,18 @@
+import { allProjects } from "@/.contentlayer/generated";
 import { projects } from "@/data/projects";
 import Doggie from "@/public/doggie.png";
+import { compareDesc } from "date-fns";
 import Image from "next/image";
 import ProjectCard from "./ProjectCard";
+import ProjectPost from "./ProjectPost";
 
 const Projects = () => {
+  const projectPosts = allProjects
+    .filter((project) => project.isPublished)
+    .sort((a, b) =>
+      compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
+    );
+
   return (
     <section className="min-h-screen overflow-auto px-4 sm:px-16 xl:px-28 2xl:px-72 py-8 flex flex-col">
       <div className="space-y-2 pt-6 pb-4 md:space-y-5">
@@ -36,6 +45,23 @@ const Projects = () => {
           </div>
         )}
       </div>
+      {projectPosts.length > 0 && (
+        <section className="flex flex-col space-y-4 pt-8">
+          <div className="flex flex-col space-y-2">
+            <h1 className="text-[30px] leading-[30px] text-green-700 font-semibold font-poppins">
+              Other Projects
+            </h1>
+            <p className="text-lg leading-7">
+              Other projects that I've written about.
+            </p>
+          </div>
+          <div className="flex flex-col space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-4 xl:grid-cols-3">
+            {projectPosts.map((project, index) => (
+              <ProjectPost key={index} project={project} />
+            ))}
+          </div>
+        </section>
+      )}
     </section>
   );
 };

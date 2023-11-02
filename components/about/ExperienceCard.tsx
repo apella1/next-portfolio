@@ -10,7 +10,9 @@ export interface ExperienceProps {
 const calculateDuration = (startDate: string, endDate: string) => {
   const start = new Date(startDate);
   const end =
-    endDate === "present" || "Present" ? new Date() : new Date(endDate);
+    endDate === "present" || endDate === "Present"
+      ? new Date()
+      : new Date(endDate);
   const diffInMonths =
     (end.getFullYear() - start.getFullYear()) * 12 +
     (end.getMonth() - start.getMonth());

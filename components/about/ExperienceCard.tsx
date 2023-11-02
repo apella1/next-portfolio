@@ -45,11 +45,11 @@ const ExperienceCard = ({ experience }: { experience: ExperienceProps }) => {
       <div>
         <div className="flex flex-col lg:flex-row lg:space-x-4">
           <p className="">
-            <span className="italic font-medium">From: </span>
+            <span className="font-medium">From: </span>
             {startDate}
           </p>
           <p className="">
-            <span className="italic font-medium">To: </span>
+            <span className="font-medium">To: </span>
             {endDate}
           </p>
         </div>

@@ -21,7 +21,7 @@ const Projects = () => {
         </h1>
         {projects.length > 0 && (
           <p className="text-lg leading-7">
-            Some of the projects I've worked on.
+            Some of the projects I'm working on.
           </p>
         )}
       </div>

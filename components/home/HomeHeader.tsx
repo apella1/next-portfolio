@@ -3,6 +3,7 @@ import { SocialIcon } from "@/utils/types";
 import Image from "next/image";
 import { DiGithubBadge } from "react-icons/di";
 import { FiLinkedin } from "react-icons/fi";
+import { FaTwitter } from "react-icons/fa";
 
 const socialIcons: SocialIcon[] = [
   {
@@ -18,7 +19,7 @@ const socialIcons: SocialIcon[] = [
   {
     name: "Twitter",
     href: "https://twitter.com/apella_john",
-    icon: <DiGithubBadge />,
+    icon: <FaTwitter />,
   },
 ];
 
@@ -36,7 +37,8 @@ const HomeHeader = () => {
           development.
         </p>
         <p className="text-[20px] leading-[36px] font-medium">
-          Welcome to my site where I share what I'm learning in my growth as a software engineer.
+          Welcome to my site where I share what I'm learning in my growth as a
+          software engineer.
         </p>
       </div>
       <div className="flex items-center space-x-3 px-4">

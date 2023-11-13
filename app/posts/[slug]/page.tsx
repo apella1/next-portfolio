@@ -1,6 +1,5 @@
-import { format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
-import Image from "next/image";
+import { format, parseISO } from "date-fns";
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({
@@ -18,15 +17,15 @@ export default function Post({ params }: { params: { slug: string } }) {
   return (
     <section className="px-4 space-y-4 sm:px-16 xl:px-28 2xl:px-72 pt-8">
       <article>
-        <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold">{post.title}</h1>
-          <Image
+        <div className="mb-8">
+          {/* <Image
             src={post.image}
             alt=""
             width={400}
             height={400}
             className=""
-          />
+          /> */}
+          <h1 className="text-[24px] font-bold self-start">{post.title}</h1>
           <time
             dateTime={post.publishedAt}
             className="mb-1 text-xs text-gray-600"

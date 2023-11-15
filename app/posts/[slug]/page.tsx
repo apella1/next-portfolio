@@ -25,7 +25,7 @@ export default function Post({ params }: { params: { slug: string } }) {
             height={400}
             className=""
           /> */}
-          <h1 className="text-[24px] font-bold self-start">{post.title}</h1>
+          <h1 className="text-[30px] font-bold self-start">{post.title}</h1>
           <time
             dateTime={post.publishedAt}
             className="mb-1 text-xs text-gray-600"

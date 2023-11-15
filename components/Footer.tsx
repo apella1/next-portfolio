@@ -7,7 +7,6 @@ const thisYear: string = new Date().getFullYear().toString();
 
 const Footer = () => {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <footer
       className={`flex items-center px-4 py-8 sm:px-16 xl:px-28 2xl:px-72 ${

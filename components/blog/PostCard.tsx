@@ -5,7 +5,7 @@ import Link from "next/link";
 const PostCard = ({ post }: { post: Post }) => {
   return (
     <div className="flex flex-col space-y-3">
-      <h2 className="text-[20px] text-blue-400">
+      <h2 className="text-[20px] text-blue-400 font-medium">
         <Link href={post.url} className="">
           {post.title}
         </Link>

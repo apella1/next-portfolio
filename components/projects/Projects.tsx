@@ -16,7 +16,7 @@ const Projects = () => {
   return (
     <section className="min-h-screen overflow-auto px-4 sm:px-16 xl:px-28 2xl:px-72 py-8 flex flex-col">
       <div className="space-y-2 pt-6 pb-4 md:space-y-5">
-        <h1 className="text-[30px] leading-[30px] text-green-700 font-semibold font-poppins">
+        <h1 className="text-[30px] leading-[30px] text-blue-700 font-semibold font-poppins">
           Projects
         </h1>
         {projects.length > 0 && (

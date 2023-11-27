@@ -46,7 +46,7 @@ const HomeHeader = () => {
             href={socialIcon.href}
             key={index}
             target="_blank"
-            className="hover:bg-[#076115] hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
+            className="hover:bg-blue-400 hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
           >
             <div className="text-2xl">{socialIcon.icon}</div>
             <p>{socialIcon.name}</p>

@@ -41,12 +41,12 @@ const Navbar = () => {
         >
           <a
             href={item.href}
-            className={`hover:decoration-[#076115] hover:underline hover:decoration-[4px] hover:underline-offset-4  py-2 rounded-md`}
+            className={`hover:decoration-blue-400 hover:underline hover:decoration-[4px] hover:underline-offset-4  py-2 rounded-md`}
           >
             {item.name}
           </a>
           {item.href === pathname && (
-            <div className="self-center text-2xl font-black text-green-500">
+            <div className="self-center text-2xl font-black text-blue-500">
               .
             </div>
           )}

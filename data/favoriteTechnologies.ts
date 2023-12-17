@@ -3,6 +3,12 @@ import { FavoriteTechnology } from "@/utils/types";
 export const favoriteTechnologies: FavoriteTechnology[] = [
   {
     imgSrc:
+      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/go-colored.svg",
+    imgAlt: "Go",
+    href: "https://go.dev/doc/",
+  },
+  {
+    imgSrc:
       "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg",
     imgAlt: "Python",
     href: "https://www.python.org/",

@@ -4,7 +4,7 @@ description: "Heroku is a cloud platform where you can deploy, manage and scale 
 image: "/blog.png"
 publishedAt: 2023-11-27
 updatedAt: 2023-11-27
-isPublished: false
+isPublished: true
 author: "John Apella"
 tags:
   - django
@@ -14,6 +14,7 @@ tags:
   - deployments
 ---
 
+<section>
 <h2> Deploying a Django Project on Heroku</h2>
 
 This article assumes that you're familiar with <a href="https://www.djangoproject.com/" className="text-blue-400">Django</a> and have possibly worked with <a href="https://www.django-rest-framework.org/" className="text-blue-400">Django REST Framework</a>. This is in no way a comprehensive guide on deploying applications on Heroku but a quick guide to just the necessary bits to have your app up and running. I'll try as much as possible to provide links to resources that further discuss the concepts covered. The article also assumes familiarity with [git](https://git-scm.com/) as a version control system. The article also assumes that you have Python installed on your operating system.
@@ -33,10 +34,38 @@ In this tutorial you'll learn the following concepts:
   </li>
 </ul>
 
-<h2> Step 1: Create a Heroku Account</h2>
+<h2 className="text-3xl">Creating a Heroku Account</h2>
 
-<h2> Step 2: Install Heroku CLI and Log In to your Account</h2>
+The first step would be to sign up for a Heroku account that you will be using to
+host your application. Heroku offers several tiers for different use cases therefore
+you are certain to find a package that works perfectly for your project needs. For
+the tutorial, I'll use the basic package offering eco dynos that allow you to host
+multiple projects within the same plan. The way eco dynos have is you get 1000 eco
+dyno hours that you can use within a month for just $5. When an application hasn't
+been used for more than 30 minutes then the eco dynos sleep meaning the time the
+dynos are asleep the hours won't be accrued towards your total dyno hours. For the
+next hit to your application, it will take a slightly longer time than it would take
+since the dynos have to be spun up before accessing the resources. It is also important
+to note that the eco dyno hours will renew at the start of each month.
 
-<h2> Step 3: Create a Heroku App </h2>
+To proceed, head over to [Heroku's sign-up page](https://signup.heroku.com/) and follow all the prompts to complete your sign-up process. Next, you'll want to add a payment method and subscribe to the 1000 eco dyno hours pool for $5. The following [article](https://devcenter.heroku.com/articles/eco-dyno-hours#subscribing-to-the-eco-dynos-plan) goes into more detail about how the eco dynos operate and how to subscribe. Once this is done, you can move to the next step where we'll be working with the Heroku CLI tool to manage all our operations within the terminal. Working over the terminal makes it easy for us to carry out all our deployment activities at a centralized place within our repository.
 
-<h2> Step 4: Deploying the App to Heroku </h2>
+<h2>Installing Heroku CLI and Log In to your Account</h2>
+To get started with installing the Heroku CLI tool, you need git installed on your
+computer. You can install the Heroku CLI as a standalone installation with the tarball
+using the following command. The advantage of using this method is that it auto-updates
+which makes it convenient to work with the CLI as you don't have to worry about manually
+updating each time you use the CLI tool.
+
+```bash
+curl https://cli-assets.heroku.com/install.s | sh
+```
+
+For instances where auto-updating isn't ideal, you can use npm to install
+a specific version of the CLI tool. Using npm will require having Node installed
+on your computer. The following [article](https://devcenter.heroku.com/articles/heroku-cli) goes into more detail on all the various ways you can install the CLI tool on your computer.
+
+<h2>Creating a Heroku App </h2>
+
+<h2>Deploying the App to Heroku </h2>
+</section>

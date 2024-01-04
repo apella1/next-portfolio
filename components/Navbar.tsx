@@ -22,10 +22,10 @@ const menuItems: MenuItem[] = [
     name: "Projects",
     href: "/projects",
   },
-  {
+  /* {
     name: "Blog",
     href: "/blog",
-  },
+  }, */
 ];
 
 const Navbar = () => {

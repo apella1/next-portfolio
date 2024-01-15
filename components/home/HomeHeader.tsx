@@ -27,7 +27,7 @@ const HomeHeader = () => {
   return (
     <header className="flex flex-col px-4 py-8 space-y-6 lg:space-y-8 sm:px-16 xl:px-28 2xl:px-72">
       <section className="px-4">
-        <div className="rounded-full border-[4px] border-blue-400 w-fit">
+        <div className="rounded-full border-[4px] border-blue-900 w-fit">
           <Image src={profilePic} alt="" className="rounded-full w-44" />
         </div>
       </section>
@@ -46,7 +46,7 @@ const HomeHeader = () => {
             href={socialIcon.href}
             key={index}
             target="_blank"
-            className="hover:bg-blue-400 hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
+            className="hover:bg-blue-900 hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
           >
             <div className="text-2xl">{socialIcon.icon}</div>
             <p>{socialIcon.name}</p>

@@ -46,7 +46,7 @@ const Navbar = () => {
             {item.name}
           </a>
           {item.href === pathname && (
-            <div className="self-center text-2xl font-black text-blue-500">
+            <div className="self-center text-2xl font-black text-blue-900">
               .
             </div>
           )}

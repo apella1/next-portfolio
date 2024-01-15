@@ -55,14 +55,16 @@ const ExperienceCard = ({ experience }: { experience: ExperienceProps }) => {
         </div>
         <p className="">Duration: {duration}</p>
       </div>
-      <div className="mt-4">
-        <h4 className="text-lg font-semibold">Achievements:</h4>
-        <ul className="list-disc ml-6">
-          {achievements.map((achievement) => (
-            <li key={achievement}>{achievement}</li>
-          ))}
-        </ul>
-      </div>
+      {achievements.length > 0 && (
+        <div className="mt-4">
+          <h4 className="text-lg font-semibold">Achievements:</h4>
+          <ul className="list-disc ml-6">
+            {achievements.map((achievement) => (
+              <li key={achievement}>{achievement}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

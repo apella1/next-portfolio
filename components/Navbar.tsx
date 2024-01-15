@@ -41,7 +41,7 @@ const Navbar = () => {
         >
           <a
             href={item.href}
-            className={`hover:decoration-blue-400 hover:underline hover:decoration-[4px] hover:underline-offset-4  py-2 rounded-md`}
+            className={`hover:decoration-blue-900 hover:underline hover:decoration-[4px] hover:underline-offset-4  py-2 rounded-md`}
           >
             {item.name}
           </a>

@@ -6,7 +6,7 @@ const RecentProjects = () => {
   const projects = allProjects
     .filter((post) => post.isPublished)
     .sort((a, b) =>
-      compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
+      compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)),
     )
     .slice(0, 3);
   return (

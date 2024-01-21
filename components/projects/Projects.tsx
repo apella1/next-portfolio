@@ -10,7 +10,7 @@ const Projects = () => {
   const projectPosts = allProjects
     .filter((project) => project.isPublished)
     .sort((a, b) =>
-      compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
+      compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)),
     );
 
   return (

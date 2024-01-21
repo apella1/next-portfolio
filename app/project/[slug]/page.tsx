@@ -10,7 +10,7 @@ export const generateStaticParams = async () =>
 export default function Project({ params }: { params: { slug: string } }) {
   const post = allProjects.find(
     (project) =>
-      project._raw.flattenedPath.replace(/projects\/?/, "") === params.slug
+      project._raw.flattenedPath.replace(/projects\/?/, "") === params.slug,
   );
   if (!post) {
     throw new Error(`Post not found for slug: ${params.slug}`);

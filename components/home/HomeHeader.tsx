@@ -41,7 +41,7 @@ const HomeHeader = () => {
           software engineer.
         </p>
       </div>
-      <div className="flex items-center space-x-3 px-4">
+      <div className="flex items-center space-x-3 md:px-4">
         {socialIcons.map((socialIcon, index) => (
           <a
             href={socialIcon.href}

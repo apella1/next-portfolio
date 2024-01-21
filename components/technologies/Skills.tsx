@@ -47,13 +47,11 @@ const Skills = () => {
             </figure>
           </div>
         </div>
-      </section>
-      <section className="flex flex-col space-y-6 lg:space-y-8 pt-8 xl:self-center">
         <div className="flex flex-col space-y-6 lg:basis-1/2">
           <p className="xl:text-2xl font-semibold text-center">
             Operating Systems
           </p>
-          <div className="w-[800px]">
+          <div className="w-[350px] mobile:w-[400px] self-center xl:w-full">
             <figure>
               <embed src="https://wakatime.com/share/@apella/b456c7f1-e1c4-43a5-8ece-a04ff7c573bb.svg"></embed>
             </figure>
@@ -63,7 +61,7 @@ const Skills = () => {
           <p className="xl:text-2xl font-semibold text-center">
             Coding Activity
           </p>
-          <div className="w-[800px]">
+          <div className="w-[350px] mobile:w-[400px] self-center xl:w-full">
             <figure>
               <embed src="https://wakatime.com/share/@apella/99b28e19-3765-4df8-b982-35fadce51143.svg"></embed>
             </figure>

@@ -23,15 +23,6 @@ const socialIcons: SocialIcon[] = [
   },
 ];
 
-function TestHusky() {
-  return (
-    <div>
-      <p>Husky Works</p>
-      <p>Or does it?</p>
-    </div>
-  );
-}
-
 const HomeHeader = () => {
   return (
     <header className="flex flex-col px-4 py-8 space-y-6 lg:space-y-8 sm:px-16 xl:px-28 2xl:px-72">

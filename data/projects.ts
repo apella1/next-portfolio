@@ -9,7 +9,7 @@ export const projects: Project[] = [
       "An application that allows spaced reviewing of learnt material.",
     imgSrc: chat,
     deploymentHref: "https://review-skill.vercel.app/",
-    sourceCodeHref: "https://github.com/apella1/review_skill_django",
+    sourceCodeHref: "https://github.com/apella1/review-skill-frontend",
     techStack: [
       "Go-Chi",
       "React",

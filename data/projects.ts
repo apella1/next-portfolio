@@ -11,7 +11,7 @@ export const projects: Project[] = [
     deploymentHref: "https://review-skill.vercel.app/",
     sourceCodeHref: "https://github.com/apella1/review_skill_django",
     techStack: [
-      "Django REST",
+      "Go-Chi",
       "React",
       "Tailwind CSS",
       "TypeScript",

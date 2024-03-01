@@ -1,3 +1,3 @@
 # Portfolio Website
 
-[Link](https://johnapella.tech)
+[Link](https://www.johnapella.tech)

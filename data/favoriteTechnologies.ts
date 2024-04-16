@@ -3,49 +3,6 @@ import { FavoriteTechnology } from "@/utils/types";
 export const favoriteTechnologies: FavoriteTechnology[] = [
   {
     imgSrc:
-      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/go-colored.svg",
-    imgAlt: "Go",
-    href: "https://go.dev/doc/",
-  },
-  {
-    imgSrc:
-      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg",
-    imgAlt: "Python",
-    href: "https://www.python.org/",
-  },
-  {
-    imgSrc:
-      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/django-colored.svg",
-    imgAlt: "Django",
-    href: "https://www.djangoproject.com/",
-  },
-  {
-    imgSrc:
-      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/docker-colored.svg",
-    imgAlt: "Docker",
-    href: "https://www.docker.com/",
-  },
-  {
-    imgSrc:
-      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/heroku-colored.svg",
-    imgAlt: "Heroku",
-    href: "https://www.heroku.com/",
-  },
-  {
-    imgSrc:
-      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mongodb-colored.svg",
-    imgAlt: "MongoDB",
-    href: "https://www.mongodb.com/",
-  },
-  {
-    imgSrc:
-      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/postgresql-colored.svg",
-    imgAlt: "PostgreSQL",
-    href: "https://www.postgresql.org/",
-  },
-
-  {
-    imgSrc:
       "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/typescript-colored.svg",
     imgAlt: "TypeScript",
     href: "https://www.typescriptlang.org/",
@@ -70,9 +27,48 @@ export const favoriteTechnologies: FavoriteTechnology[] = [
   },
   {
     imgSrc:
+      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg",
+    imgAlt: "HTML5",
+    href: "https://developer.mozilla.org/en-US/docs/Glossary/HTML5",
+  },
+  {
+    imgSrc:
+      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg",
+    imgAlt: "CSS3",
+    href: "https://www.w3.org/TR/CSS/#css",
+  },
+  {
+    imgSrc:
       "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/tailwindcss-colored.svg",
     imgAlt: "TailwindCSS",
     href: "https://tailwindcss.com/",
+  },
+];
+
+export const technologiesStore = [
+  {
+    imgSrc:
+      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/docker-colored.svg",
+    imgAlt: "Docker",
+    href: "https://www.docker.com/",
+  },
+  {
+    imgSrc:
+      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/heroku-colored.svg",
+    imgAlt: "Heroku",
+    href: "https://www.heroku.com/",
+  },
+  {
+    imgSrc:
+      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mongodb-colored.svg",
+    imgAlt: "MongoDB",
+    href: "https://www.mongodb.com/",
+  },
+  {
+    imgSrc:
+      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/postgresql-colored.svg",
+    imgAlt: "PostgreSQL",
+    href: "https://www.postgresql.org/",
   },
   {
     imgSrc:
@@ -80,9 +76,24 @@ export const favoriteTechnologies: FavoriteTechnology[] = [
     imgAlt: "Linux",
     href: "https://www.linux.org",
   },
-];
-
-export const technologiesStore = [
+  {
+    imgSrc:
+      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/django-colored.svg",
+    imgAlt: "Django",
+    href: "https://www.djangoproject.com/",
+  },
+  {
+    imgSrc:
+      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/go-colored.svg",
+    imgAlt: "Go",
+    href: "https://go.dev/doc/",
+  },
+  {
+    imgSrc:
+      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg",
+    imgAlt: "Python",
+    href: "https://www.python.org/",
+  },
   {
     imgSrc:
       "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg",

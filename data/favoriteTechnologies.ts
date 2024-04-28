@@ -43,6 +43,12 @@ export const favoriteTechnologies: FavoriteTechnology[] = [
     imgAlt: "TailwindCSS",
     href: "https://tailwindcss.com/",
   },
+  {
+    imgSrc:
+      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/java-colored.svg",
+    imgAlt: "Java",
+    href: "https://www.oracle.com/java/",
+  },
 ];
 
 export const technologiesStore = [
@@ -99,12 +105,6 @@ export const technologiesStore = [
       "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg",
     imgAlt: "JavaScript",
     href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-  },
-  {
-    imgSrc:
-      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/java-colored.svg",
-    imgAlt: "Java",
-    href: "https://www.oracle.com/java/",
   },
   {
     imgSrc:

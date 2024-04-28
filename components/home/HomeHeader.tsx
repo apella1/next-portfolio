@@ -34,7 +34,7 @@ const HomeHeader = () => {
       <div className="px-4 flex flex-col space-y-1 font-poppins">
         <p className="text-[20px] leading-[36px] font-medium">
           Hi, I'm John, a software engineer building things mostly using
-          TypeScript and Java.
+          TypeScript.
         </p>
         <p className="text-[20px] leading-[36px] font-medium">
           Welcome to my site where I share what I'm learning in my growth as a

@@ -6,7 +6,7 @@ export const experiences: ExperienceProps[] = [
     companyUrl: "https://theafricablockchaincenter.com/",
     role: "Software Engineer",
     startDate: "2023-04-01",
-    endDate: "Present",
+    endDate: "2024-05-23",
     achievements: [],
   },
   {

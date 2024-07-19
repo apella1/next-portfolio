@@ -32,9 +32,9 @@ const Navbar = () => {
   const pathname = usePathname();
   const Menu = () => (
     <>
-      {menuItems.map((item, index) => (
+      {menuItems.map((item) => (
         <div
-          key={index}
+          key={item.href}
           className={`flex items-center justify-center ${
             item.href === pathname ? "px-[1px]" : "px-4"
           }`}

@@ -12,7 +12,7 @@ export const useTheme = () => {
     const isDarkModePreferred =
       localStorage.getItem(LOCAL_STORAGE_KEY) === "true";
     setIsDarkMode(isDarkModePreferred);
-  }, []);
+  }, [isDarkMode]);
 
   const toggleTheme = () => {
     const newTheme = !isDarkMode;

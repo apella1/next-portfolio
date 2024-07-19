@@ -2,6 +2,14 @@ import { ExperienceProps } from "@/components/about/ExperienceCard";
 
 export const experiences: ExperienceProps[] = [
   {
+    company: "LCT Africa",
+    companyUrl: "https://www.lctafrica.net/",
+    role: "Software Engineer",
+    startDate: "2024-07-01",
+    endDate: "present",
+    achievements: [],
+  },
+  {
     company: "Africa Blockchain Center",
     companyUrl: "https://theafricablockchaincenter.com/",
     role: "Software Engineer",

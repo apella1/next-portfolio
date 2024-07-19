@@ -50,7 +50,7 @@ const ExperienceCard = ({ experience }: { experience: ExperienceProps }) => {
           </p>
           <p className="">
             <span className="font-medium">To: </span>
-            {endDate}
+            {endDate.charAt(0).toUpperCase() + endDate.slice(1)}
           </p>
         </div>
         <p className="">Duration: {duration}</p>

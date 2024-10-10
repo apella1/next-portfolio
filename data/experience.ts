@@ -4,7 +4,7 @@ export const experiences: ExperienceProps[] = [
   {
     company: "LCT Africa",
     companyUrl: "https://www.lctafrica.net/",
-    role: "Software Engineer",
+    role: "Frontend Software Engineer",
     startDate: "2024-07-01",
     endDate: "present",
     achievements: [],
@@ -12,7 +12,7 @@ export const experiences: ExperienceProps[] = [
   {
     company: "Africa Blockchain Center",
     companyUrl: "https://theafricablockchaincenter.com/",
-    role: "Software Engineer",
+    role: "Frontend Software Engineer",
     startDate: "2023-04-11",
     endDate: "2024-05-31",
     achievements: [],

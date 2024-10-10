@@ -1,5 +1,4 @@
 import chat from "@/public/projects/chat.jpg";
-// import library from "@/public/projects/library.jpg";
 import { Project } from "@/utils/types";
 
 export const projects: Project[] = [
@@ -19,19 +18,4 @@ export const projects: Project[] = [
       "Heroku",
     ],
   },
-  // {
-  //   title: "Library Site",
-  //   description:
-  //     "A library site that allows users to view, create, update, and delete books and authors.",
-  //   imgSrc: library,
-  //   sourceCodeHref: "https://github.com/apella1/local_library",
-  //   techStack: [
-  //     "JavaScript",
-  //     "Express",
-  //     "Node.js",
-  //     "MongoDB",
-  //     "Tailwind CSS",
-  //     "Pug",
-  //   ],
-  // },
 ];

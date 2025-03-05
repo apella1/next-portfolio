@@ -1,4 +1,4 @@
-import { Skills } from "@/components";
+import Skills from "@/components/technologies/skills";
 
 export default function SkillsView() {
   return (

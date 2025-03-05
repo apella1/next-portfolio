@@ -1,6 +1,6 @@
 import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
-import { PostCard } from "../blog";
+import PostCard from "../blog/post-card";
 
 const RecentPosts = () => {
   const posts = allPosts

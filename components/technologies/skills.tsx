@@ -1,6 +1,3 @@
-import { favoriteTechnologies } from "@/data/favoriteTechnologies";
-import Image from "next/image";
-
 const Skills = () => {
   return (
     <section className="h-full overflow-auto px-4 sm:px-16 xl:px-28 2xl:px-72 py-8 2xl:py-12 flex flex-col">

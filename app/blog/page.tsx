@@ -1,4 +1,4 @@
-import { Blog } from "@/components";
+import Blog from "@/components/blog/blog";
 
 export default function BlogView() {
   return (

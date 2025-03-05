@@ -1,9 +1,9 @@
 "use client";
 import { MenuItem } from "@/utils/types";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { RiCloseLine, RiMenu4Line } from "react-icons/ri";
-import ThemeSwitcher from "./ThemeSwitcher";
-import { usePathname } from "next/navigation";
+import ThemeSwitcher from "./theme-switcher";
 
 const menuItems: MenuItem[] = [
   {
@@ -11,24 +11,12 @@ const menuItems: MenuItem[] = [
     href: "/",
   },
   {
-    name: "About",
-    href: "/about",
-  },
-  {
     name: "Technologies",
     href: "/technologies",
   },
-  {
-    name: "Projects",
-    href: "/projects",
-  },
-  /* {
-    name: "Blog",
-    href: "/blog",
-  }, */
 ];
 
-const Navbar = () => {
+export default function Navbar() {
   const pathname = usePathname();
   const Menu = () => (
     <>
@@ -92,6 +80,4 @@ const Navbar = () => {
       </section>
     </nav>
   );
-};
-
-export default Navbar;
+}

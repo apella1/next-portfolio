@@ -1,14 +1,14 @@
 import Book from "@/public/blog.png";
-import Image from "next/image";
 import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
-import PostCard from "./PostCard";
+import Image from "next/image";
+import PostCard from "./post-card";
 
 const Blog = () => {
   const posts = allPosts
     .filter((post) => post.isPublished)
     .sort((a, b) =>
-      compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)),
+      compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
     );
 
   return (

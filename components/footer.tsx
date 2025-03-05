@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const thisYear: string = new Date().getFullYear().toString();
 
-const Footer = () => {
+export default function Footer() {
   const pathname = usePathname();
   return (
     <footer
@@ -29,6 +29,4 @@ const Footer = () => {
       <p className={`self-center lg:p-2`}>&copy; {thisYear} John Apella</p>
     </footer>
   );
-};
-
-export default Footer;
+}

@@ -6,7 +6,8 @@ export const generateStaticParams = async () =>
     slug: post._raw.flattenedPath.replace(/posts\/?/, ""),
   }));
 
-export default function Post({ params }: { params: { slug: string } }) {
+export default async function Post(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const post = allPosts.find(
     (post) => post._raw.flattenedPath.replace(/posts\/?/, "") === params.slug,
   );

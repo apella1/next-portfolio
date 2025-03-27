@@ -1,30 +1,36 @@
 "use client";
 
-import { useState } from "react";
-import { projects, getAllTechnologies } from "@/data/projects";
 import ProjectCard from "@/components/projects/project-card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { getAllTechnologies, projects } from "@/data/projects";
+import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function Projects() {
   const [selectedTech, setSelectedTech] = useState<string[]>([]);
   const allTechnologies = getAllTechnologies();
 
-  const filteredProjects = projects.filter(
-    (project) =>
-      selectedTech.length === 0 ||
-      selectedTech.some((tech) => project.technologies.includes(tech))
-  );
+  const filteredProjects = projects.filter((project) => {
+    if (selectedTech.length === 0) return true;
+    return project.technologies.some((tech) => selectedTech.includes(tech));
+  });
 
   const toggleTech = (tech: string) => {
-    setSelectedTech((prev) =>
-      prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech]
-    );
+    setSelectedTech((prevSelectedTech) => {
+      if (prevSelectedTech.includes(tech)) {
+        const newSelectedTech = prevSelectedTech.filter((t) => t !== tech);
+        return newSelectedTech;
+      }
+
+      const newSelectedTech = [...prevSelectedTech, tech];
+      return newSelectedTech;
+    });
   };
 
   return (
-    <section className="w-full py-12 bg-muted/50">
+    <section className="w-full py-12 bg-muted/50 min-h-screen">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
@@ -53,7 +59,12 @@ export default function Projects() {
                 <Badge
                   key={tech}
                   variant={selectedTech.includes(tech) ? "default" : "outline"}
-                  className="cursor-pointer"
+                  className={cn(
+                    `cursor-pointer transition-colors`,
+                    selectedTech.includes(tech)
+                      ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                      : "hover:bg-muted"
+                  )}
                   onClick={() => toggleTech(tech)}
                 >
                   {tech}

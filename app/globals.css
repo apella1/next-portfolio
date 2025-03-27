@@ -28,7 +28,6 @@ body {
 
 /* Change the color of the thumb (the draggable part of the scrollbar) */
 ::-webkit-scrollbar-thumb {
-  background-color: #043b0d;
   border-radius: 10px;
 }
 

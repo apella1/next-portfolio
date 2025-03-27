@@ -1,4 +1,5 @@
 "use client";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
@@ -9,9 +10,10 @@ export default function Footer() {
   const pathname = usePathname();
   return (
     <footer
-      className={`flex items-center px-4 py-8 sm:px-16 xl:px-28 2xl:px-72 ${
+      className={cn(
+        `flex items-center py-8`,
         pathname === "/" ? "justify-center" : "justify-between"
-      }`}
+      )}
     >
       {pathname !== "/" && (
         <div className="flex items-center space-x-8 text-[18px]">

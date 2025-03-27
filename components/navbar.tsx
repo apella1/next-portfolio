@@ -11,8 +11,8 @@ const menuItems: MenuItem[] = [
     href: "/",
   },
   {
-    name: "Technologies",
-    href: "/technologies",
+    name: "Wakatime Stats",
+    href: "/wakatime-stats",
   },
 ];
 
@@ -47,7 +47,7 @@ export default function Navbar() {
     setIsNavOpen(!isNavOpen);
   };
   return (
-    <nav className="flex items-center px-4 py-8 2xl:px-72 sm:px-16 xl:px-28 md:py-4 font-poppins">
+    <nav className="flex items-center py-8 md:py-4 font-poppins">
       <section className="flex items-center space-x-2 lg:space-x-4">
         <div className="hidden lg:flex lg:items-center lg:space-x-2 xl:space-x-4">
           <Menu />

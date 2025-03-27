@@ -10,10 +10,7 @@ interface ProjectsSectionProps {
 
 export default function FeaturedProjects({ projects }: ProjectsSectionProps) {
   return (
-    <section
-      id="projects"
-      className="w-full py-12 md:py-24 lg:py-32 bg-muted/50"
-    >
+    <section id="projects" className="w-full py-12 bg-muted/50">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
@@ -26,7 +23,7 @@ export default function FeaturedProjects({ projects }: ProjectsSectionProps) {
             </p>
           </div>
         </div>
-        <div className="mx-auto grid max-w-5xl gap-8 py-12 lg:grid-cols-2">
+        <div className="mx-auto grid gap-8 py-12 lg:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}

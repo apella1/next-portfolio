@@ -47,55 +47,8 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
-export const Project = defineDocumentType(() => ({
-  name: "Project",
-  filePathPattern: "projects/**/*.mdx",
-  fields: {
-    title: {
-      type: "string",
-      required: true,
-    },
-    imgSrc: {
-      type: "string",
-      required: true,
-    },
-    sourceCodeHref: {
-      type: "string",
-    },
-    description: {
-      type: "string",
-      required: true,
-    },
-    isPublished: {
-      type: "boolean",
-      default: false,
-      required: true,
-    },
-    publishedAt: {
-      type: "date",
-      required: true,
-    },
-    updatedAt: {
-      type: "date",
-      required: true,
-    },
-    techStack: {
-      required: true,
-      type: "list",
-      of: { type: "string" },
-    },
-  },
-  computedFields: {
-    url: {
-      type: "string",
-      resolve: (project) =>
-        `/project/${project._raw.flattenedPath.replace(/projects\/?/, "")}`,
-    },
-  },
-}));
-
 export default makeSource({
   contentDirPath: ".",
   contentDirInclude: ["posts", "projects"],
-  documentTypes: [Post, Project],
+  documentTypes: [Post],
 });

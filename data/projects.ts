@@ -5,6 +5,7 @@ export interface Project {
   technologies: string[];
   githubUrl?: string;
   demoUrl?: string;
+  featured: boolean;
 }
 
 export const projects: Project[] = [
@@ -22,6 +23,7 @@ export const projects: Project[] = [
     ],
     githubUrl: "#",
     demoUrl: "#",
+    featured: true,
   },
   {
     title: "Dashboard Application",
@@ -31,6 +33,7 @@ export const projects: Project[] = [
     technologies: ["React", "D3.js", "Node.js", "MongoDB", "WebSockets"],
     githubUrl: "#",
     demoUrl: "#",
+    featured: true,
   },
   {
     title: "Mobile Fitness App",
@@ -40,6 +43,7 @@ export const projects: Project[] = [
     technologies: ["React Native", "Firebase", "Redux", "GraphQL", "Expo"],
     githubUrl: "#",
     demoUrl: "#",
+    featured: true,
   },
   {
     title: "Content Management System",
@@ -49,5 +53,14 @@ export const projects: Project[] = [
     technologies: ["Vue.js", "Express", "PostgreSQL", "AWS S3", "JWT"],
     githubUrl: "#",
     demoUrl: "#",
+    featured: false,
   },
 ];
+
+export const getAllTechnologies = (): string[] => {
+  const techSet = new Set<string>();
+  projects.forEach((project) => {
+    project.technologies.forEach((tech) => techSet.add(tech));
+  });
+  return Array.from(techSet).sort();
+};

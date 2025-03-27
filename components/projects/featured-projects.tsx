@@ -1,14 +1,12 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import type { Project } from "@/data/projects";
+import { projects } from "@/data/projects";
 import ProjectCard from "./project-card";
 
-interface ProjectsSectionProps {
-  projects: Project[];
-}
+export default function FeaturedProjects() {
+  const featuredProjects = projects.filter((project) => project.featured);
 
-export default function FeaturedProjects({ projects }: ProjectsSectionProps) {
   return (
     <section id="projects" className="w-full py-12 bg-muted/50">
       <div className="container px-4 md:px-6">
@@ -24,13 +22,13 @@ export default function FeaturedProjects({ projects }: ProjectsSectionProps) {
           </div>
         </div>
         <div className="mx-auto grid gap-8 py-12 lg:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project, index) => (
+          {featuredProjects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
         </div>
         <div className="flex justify-center">
           <Button asChild variant="outline" size="lg">
-            <Link href="#">
+            <Link href="/projects">
               View All Projects <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

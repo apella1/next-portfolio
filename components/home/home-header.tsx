@@ -1,25 +1,27 @@
 import profilePic from "@/public/profile.webp";
 import { SocialIcon } from "@/utils/types";
 import Image from "next/image";
+import Link from "next/link";
 import { DiGithubBadge } from "react-icons/di";
-import { FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { FiLinkedin } from "react-icons/fi";
+import { Button } from "../ui/button";
 
 const socialIcons: SocialIcon[] = [
   {
     name: "Github",
     href: "https://github.com/apella1",
-    icon: <DiGithubBadge />,
+    icon: <DiGithubBadge className="h-5 w-5" />,
   },
   {
     name: "LinkedIn",
     href: "https://linkedin.com/in/johnapella",
-    icon: <FiLinkedin />,
+    icon: <FiLinkedin className="h-5 w-5" />,
   },
   {
-    name: "Twitter",
-    href: "https://twitter.com/apella_john",
-    icon: <FaTwitter />,
+    name: "",
+    href: "https://x.com/apella_john",
+    icon: <FaXTwitter className="h-5 w-5" />,
   },
 ];
 
@@ -38,22 +40,27 @@ const HomeHeader = () => {
               Hi, I'm John Apella
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              A software engineer building things using TypeScript. Welcome to
-              my site where I share what I'm learning in my growth as a software
-              engineer.
+              I'm a software engineer at LCT Africa.
             </p>
           </div>
-          <div className="flex items-center space-x-3 md:px-4">
+          <div className="flex items-center gap-4 md:px-4">
             {socialIcons.map((socialIcon, index) => (
-              <a
-                href={socialIcon.href}
+              <Button
                 key={index}
-                target="_blank"
-                className="hover:bg-blue-900 hover:text-white py-2 px-3 rounded-2xl flex items-center space-x-2 border border-gray-300 p-4"
+                variant="outline"
+                size="lg"
+                className="space-x-2"
+                asChild
               >
-                <div className="text-2xl">{socialIcon.icon}</div>
-                <p>{socialIcon.name}</p>
-              </a>
+                <Link
+                  href={socialIcon.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {socialIcon.icon}
+                  <span>{socialIcon.name}</span>
+                </Link>
+              </Button>
             ))}
           </div>
         </div>

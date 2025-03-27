@@ -11,7 +11,7 @@ export const experiences: Array<Experience> = [
   {
     company: "LCT Africa",
     companyUrl: "https://www.lctafrica.net/",
-    title: "Frontend Software Engineer",
+    title: "Fullstack Software Engineer",
     period: "1st July, 2024 - Present",
     isCurrent: true,
     description:

@@ -1,13 +1,7 @@
-import type { Experience } from "@/data/experience";
+import { experiences } from "@/data/experience";
 import ExperienceCard from "./experience-card";
 
-interface ExperienceSectionProps {
-  experiences: Experience[];
-}
-
-export default function ExperienceSection({
-  experiences,
-}: ExperienceSectionProps) {
+export default function ExperienceSection() {
   return (
     <section id="experience" className="w-full py-12">
       <div className="px-4 md:px-6">

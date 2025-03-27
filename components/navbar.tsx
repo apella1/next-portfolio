@@ -1,4 +1,5 @@
 "use client";
+
 import { MenuItem } from "@/utils/types";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -9,6 +10,10 @@ const menuItems: MenuItem[] = [
   {
     name: "Home",
     href: "/",
+  },
+  {
+    name: "Projects",
+    href: "/projects",
   },
   {
     name: "Wakatime Stats",

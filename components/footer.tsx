@@ -6,29 +6,57 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const thisYear: string = new Date().getFullYear().toString();
 
+const socialLinks = [
+  {
+    href: "https://github.com/apella1",
+    icon: FaGithub,
+    label: "GitHub",
+  },
+  {
+    href: "https://linkedin.com/in/johnapella",
+    icon: FaLinkedin,
+    label: "LinkedIn",
+  },
+  {
+    href: "https://twitter.com/apella_john",
+    icon: FaTwitter,
+    label: "Twitter",
+  },
+];
+
 export default function Footer() {
   const pathname = usePathname();
+
   return (
-    <footer
-      className={cn(
-        `flex items-center py-8`,
-        pathname === "/" ? "justify-center" : "justify-between"
-      )}
-    >
-      {pathname !== "/" && (
-        <div className="flex items-center space-x-8 text-[18px]">
-          <Link href="https://github.com/apella1" target="_blank">
-            <FaGithub />
-          </Link>
-          <Link href="https://linkedin.com/in/johnapella" target="_blank">
-            <FaLinkedin />
-          </Link>
-          <Link href="https://twitter.com/apella_john" target="_blank">
-            <FaTwitter />
-          </Link>
+    <footer className="w-full py-8 bg-muted/50">
+      <div className="container px-4 md:px-6">
+        <div
+          className={cn(
+            "flex items-center",
+            pathname === "/" ? "justify-center" : "justify-between"
+          )}
+        >
+          {pathname !== "/" && (
+            <div className="flex items-center gap-4">
+              {socialLinks.map((social) => (
+                <Link
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <social.icon className="h-5 w-5" />
+                  <span className="sr-only">{social.label}</span>
+                </Link>
+              ))}
+            </div>
+          )}
+          <p className="text-sm text-muted-foreground">
+            &copy; {thisYear} John Apella. All rights reserved.
+          </p>
         </div>
-      )}
-      <p className={`self-center lg:p-2`}>&copy; {thisYear} John Apella</p>
+      </div>
     </footer>
   );
 }

@@ -1,9 +1,16 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { MenuItem } from "@/utils/types";
+import { Menu } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { RiCloseLine, RiMenu4Line } from "react-icons/ri";
 import ThemeSwitcher from "./theme-switcher";
 
 const menuItems: MenuItem[] = [
@@ -23,66 +30,56 @@ const menuItems: MenuItem[] = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const Menu = () => (
-    <>
+  const [isOpen, setIsOpen] = useState(false);
+
+  const NavLinks = () => (
+    <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-6">
       {menuItems.map((item) => (
-        <div
+        <Link
           key={item.href}
-          className={`flex items-center justify-center ${
-            item.href === pathname ? "px-[1px]" : "px-4"
+          href={item.href}
+          className={`relative py-2 text-base transition-colors hover:text-primary ${
+            pathname === item.href
+              ? "text-primary font-medium"
+              : "text-muted-foreground"
           }`}
+          onClick={() => setIsOpen(false)}
         >
-          <a
-            href={item.href}
-            className={`hover:decoration-blue-900 hover:underline hover:decoration-[4px] hover:underline-offset-4  py-2 rounded-md`}
-          >
-            {item.name}
-          </a>
-          {item.href === pathname && (
-            <div className="self-center text-2xl font-black text-blue-900">
-              .
-            </div>
+          {item.name}
+          {pathname === item.href && (
+            <span className="absolute -bottom-1 left-0 h-[2px] w-full bg-primary" />
           )}
-        </div>
+        </Link>
       ))}
-    </>
+    </div>
   );
-  const [isNavOpen, setIsNavOpen] = useState(false);
-  const toggleNavbar = () => {
-    setIsNavOpen(!isNavOpen);
-  };
+
   return (
-    <nav className="flex items-center py-8 md:py-4">
-      <section className="flex items-center space-x-2 lg:space-x-4">
-        <div className="hidden lg:flex lg:items-center lg:space-x-2 xl:space-x-4">
-          <Menu />
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <nav className="container flex h-14 items-center">
+        <div className="flex w-full justify-between items-center">
+          <div className="hidden lg:flex">
+            <NavLinks />
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <ThemeSwitcher />
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild className="lg:hidden">
+                <Button variant="ghost" size="icon" className="lg:hidden">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Toggle menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[240px] sm:w-[280px]">
+                <div className="flex flex-col space-y-4 mt-8">
+                  <NavLinks />
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
-        {/* mobile menu icons */}
-        <div className="z-10 block lg:hidden">
-          {isNavOpen ? (
-            <RiCloseLine
-              className="text-green-600 text-3xl absolute top-[1em] left-[2em]"
-              onClick={toggleNavbar}
-            />
-          ) : (
-            <RiMenu4Line
-              className="text-3xl text-green-600"
-              onClick={toggleNavbar}
-            />
-          )}
-        </div>
-        {/* mobile menu */}
-        <div
-          className={
-            !isNavOpen
-              ? "hidden"
-              : "flex absolute inset-0 w-full h-screen z-{1} flex-col items-center pt-40 bg-[#1a202c] space-y-2 text-white"
-          }
-        >
-          <Menu />
-        </div>
-        <ThemeSwitcher />
-      </section>
-    </nav>
+      </nav>
+    </header>
   );
 }

@@ -1,11 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { MenuItem } from "@/utils/types";
 import { Menu } from "lucide-react";
 import Link from "next/link";
@@ -46,9 +42,6 @@ export default function Navbar() {
           onClick={() => setIsOpen(false)}
         >
           {item.name}
-          {pathname === item.href && (
-            <span className="absolute -bottom-1 left-0 h-[2px] w-full bg-primary" />
-          )}
         </Link>
       ))}
     </div>

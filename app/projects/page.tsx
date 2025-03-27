@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { getAllTechnologies, projects } from "@/data/projects";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Projects() {
   const [selectedTech, setSelectedTech] = useState<string[]>([]);
@@ -30,7 +30,7 @@ export default function Projects() {
   };
 
   return (
-    <section className="w-full py-12 bg-muted/50 min-h-screen">
+    <section className="w-full py-12 min-h-screen">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">

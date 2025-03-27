@@ -28,7 +28,7 @@ export default function Footer() {
   const pathname = usePathname();
 
   return (
-    <footer className="w-full py-8 bg-muted/50">
+    <footer className="w-full py-8">
       <div className="container px-4 md:px-6">
         <div
           className={cn(

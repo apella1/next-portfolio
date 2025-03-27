@@ -41,20 +41,11 @@ export default function Projects() {
               A comprehensive collection of my work, showcasing various
               technologies and solutions.
             </p>
+            <p>Click on the badges below to filter projects by technology.</p>
           </div>
 
           <div className="w-full max-w-4xl">
             <div className="flex flex-wrap gap-2 justify-center py-4">
-              {selectedTech.length > 0 && (
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setSelectedTech([])}
-                  className="mr-2"
-                >
-                  Clear Filters <X className="ml-2 h-4 w-4" />
-                </Button>
-              )}
               {allTechnologies.map((tech) => (
                 <Badge
                   key={tech}
@@ -70,6 +61,16 @@ export default function Projects() {
                   {tech}
                 </Badge>
               ))}
+              {selectedTech.length > 0 && (
+                <Button
+                  variant="destructive"
+                  size="sm"
+                  onClick={() => setSelectedTech([])}
+                  className="mr-2"
+                >
+                  Clear Filters <X className="ml-2 h-4 w-4" />
+                </Button>
+              )}
             </div>
           </div>
         </div>

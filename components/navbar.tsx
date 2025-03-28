@@ -19,6 +19,10 @@ const menuItems: MenuItem[] = [
     href: "/projects",
   },
   {
+    name: "Blog",
+    href: "/blog",
+  },
+  {
     name: "Wakatime Stats",
     href: "/wakatime-stats",
   },

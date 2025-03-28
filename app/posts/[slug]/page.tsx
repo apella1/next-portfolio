@@ -1,44 +1,65 @@
-import { allPosts } from "contentlayer/generated";
+import { getPostBySlug, getAllPosts } from "@/lib/posts";
 import { format, parseISO } from "date-fns";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { notFound } from "next/navigation";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
-export const generateStaticParams = async () =>
-  allPosts.map((post) => ({
-    slug: post._raw.flattenedPath.replace(/posts\/?/, ""),
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+  return posts.map((post) => ({
+    slug: post.slug,
   }));
+}
 
-export default async function Post(props: { params: Promise<{ slug: string }> }) {
-  const params = await props.params;
-  const post = allPosts.find(
-    (post) => post._raw.flattenedPath.replace(/posts\/?/, "") === params.slug,
-  );
+interface PageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
+
+export default async function Post({ params }: PageProps) {
+  const resolvedParams = await params;
+  
+  if (!resolvedParams?.slug) {
+    notFound();
+  }
+
+  const post = getPostBySlug(resolvedParams.slug);
+
   if (!post) {
-    throw new Error(`Post not found for slug: ${params.slug}`);
+    notFound();
   }
 
   return (
-    <section className="px-4 space-y-4 sm:px-16 xl:px-28 2xl:px-72 pt-8">
-      <article>
-        <div className="mb-8">
-          {/* <Image
-            src={post.image}
-            alt=""
-            width={400}
-            height={400}
-            className=""
-          /> */}
-          <h1 className="text-[30px] font-bold self-start">{post.title}</h1>
-          <time
-            dateTime={post.publishedAt}
-            className="mb-1 text-xs text-gray-600"
-          >
-            {format(parseISO(post.publishedAt), "LLLL d, yyyy")}
-          </time>
-        </div>
-        <div
-          className="[&>*]:mb-3 [&>*:last-child]:mb-0"
-          dangerouslySetInnerHTML={{ __html: post.body.html }}
-        />
+    <div className="container max-w-3xl py-8 md:py-10">
+      <article className="space-y-4">
+        <Card className="border-none shadow-none bg-transparent">
+          <CardHeader className="space-y-4 px-0">
+            <div className="space-y-2">
+              <h1 className="text-4xl font-bold tracking-tight">{post.title}</h1>
+              <p className="text-lg text-muted-foreground">{post.description}</p>
+            </div>
+            <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+              <time dateTime={post.publishedAt}>
+                {format(parseISO(post.publishedAt), "LLLL d, yyyy")}
+              </time>
+              {post.author && (
+                <>
+                  <Separator orientation="vertical" className="h-4" />
+                  <div>By {post.author}</div>
+                </>
+              )}
+            </div>
+          </CardHeader>
+          <CardContent className="px-0">
+            <Separator className="my-4" />
+            <div className="prose dark:prose-invert max-w-none">
+              <MDXRemote source={post.content} />
+            </div>
+          </CardContent>
+        </Card>
       </article>
-    </section>
+    </div>
   );
 }

@@ -2,9 +2,9 @@
 title: "How to Deploy a Django Project on Heroku"
 description: "Heroku is a cloud platform where you can deploy, manage and scale your applications. Heroku is fully managed meaning you don't have to care about maintaining your infrastructure which enhances developer productivity. It supports most of the mainstream programming languages so depending on your project you're likely sorted. It also supports multiple third-party add-ons which make scaling your application easier. In this article, I go over how to deploy a Django application on Heroku."
 image: "/blog.png"
-publishedAt: 2023-11-27
-updatedAt: 2023-11-27
-isPublished: false
+publishedAt: "2023-11-27"
+updatedAt: "2023-11-27"
+isPublished: true
 author: "John Apella"
 tags:
   - django
@@ -51,11 +51,11 @@ to note that the eco dyno hours will renew at the start of each month.
 To proceed, head over to [Heroku's sign-up page](https://signup.heroku.com/) and follow all the prompts to complete your sign-up process. Next, you'll want to add a payment method and subscribe to the 1000 eco dyno hours pool for $5. The following [article](https://devcenter.heroku.com/articles/eco-dyno-hours#subscribing-to-the-eco-dynos-plan) goes into more detail about how the eco dynos operate and how to subscribe. Once this is done, you can move to the next step where we'll be working with the Heroku CLI tool to manage all our operations within the terminal. Working over the terminal makes it easy for us to carry out all our deployment activities at a centralized place within our repository.
 
 <h2>Installing Heroku CLI and Log In to your Account</h2>
-To get started with installing the Heroku CLI tool, you need git installed on your
-computer. You can install the Heroku CLI as a standalone installation with the tarball
-using the following command. The advantage of using this method is that it auto-updates
-which makes it convenient to work with the CLI as you don't have to worry about manually
-updating each time you use the CLI tool.
+To get started with installing the Heroku CLI tool, you need git installed on
+your computer. You can install the Heroku CLI as a standalone installation with
+the tarball using the following command. The advantage of using this method is
+that it auto-updates which makes it convenient to work with the CLI as you don't
+have to worry about manually updating each time you use the CLI tool.
 
 ```bash
 curl https://cli-assets.heroku.com/install.s | sh

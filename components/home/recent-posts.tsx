@@ -1,25 +1,34 @@
-import { allPosts } from "contentlayer/generated";
-import { compareDesc } from "date-fns";
+import { getAllPosts } from "@/lib/posts";
 import PostCard from "../blog/post-card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const RecentPosts = () => {
-  const posts = allPosts
+  const posts = getAllPosts()
     .filter((post) => post.isPublished)
-    .sort((a, b) =>
-      compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)),
-    )
     .slice(0, 3);
+
+  if (posts.length === 0) {
+    return null;
+  }
+
   return (
-    <>
-      {posts.length > 0 && (
-        <section className="flex flex-col px-4 pt-16 space-y-4 sm:px-16 xl:px-28 2xl:px-72">
-          <h1 className="text-3xl font-bold">Recent Posts</h1>
-          {posts.map((post, index) => (
-            <PostCard key={index} post={post} />
-          ))}
-        </section>
-      )}
-    </>
+    <section className="container space-y-6 py-8 md:py-10">
+      <div className="flex items-center justify-between">
+        <h2 className="text-3xl font-bold tracking-tight">Recent Posts</h2>
+        <Button asChild variant="outline" size="lg">
+          <Link href="/posts">
+            View All Posts <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
+      </div>
+      <div className="grid gap-4">
+        {posts.map((post) => (
+          <PostCard key={post.slug} post={post} />
+        ))}
+      </div>
+    </section>
   );
 };
 

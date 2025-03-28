@@ -9,10 +9,6 @@ const nextConfig: NextConfig = {
   },
 };
 
-const withMDX = createMDX({
-  options: {
-    providerImportSource: "@mdx-js/react",
-  },
-});
+const withMDX = createMDX({});
 
 export default withMDX(nextConfig);

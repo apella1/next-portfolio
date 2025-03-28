@@ -32,10 +32,13 @@ export function getAllPosts(): Post[] {
       const fileContents = fs.readFileSync(fullPath, "utf8");
       const { data, content } = matter(fileContents);
 
+      if (!data.slug) {
+        throw new Error(`Post ${fileName} is missing required 'slug' field in frontmatter`);
+      }
+
       return {
-        ...(data as Omit<Post, "slug" | "content">),
+        ...(data as Omit<Post, "content">),
         publishedAt: formatDate(data.publishedAt),
-        slug: fileName.replace(/\.mdx$/, ""),
         content,
       };
     });
@@ -46,19 +49,38 @@ export function getAllPosts(): Post[] {
   );
 }
 
-export function getPostBySlug(slug: string): Post | undefined {
+export async function getPostBySlug(slug: string): Promise<Post | undefined> {
   try {
-    const fullPath = path.join(postsDirectory, `${slug}.mdx`);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const posts = getAllPosts();
+    const post = posts.find((p) => p.slug === slug);
+
+    if (!post) {
+      return undefined;
+    }
+
+    // Find the actual file name by matching the slug
+    const fileNames = fs.readdirSync(postsDirectory);
+    const fileName = fileNames.find((name) => {
+      const fullPath = path.join(postsDirectory, name);
+      const { data } = matter(fs.readFileSync(fullPath, "utf8"));
+      return data.slug === slug;
+    });
+
+    if (!fileName) {
+      return undefined;
+    }
+
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = await fs.promises.readFile(fullPath, "utf8");
     const { data, content } = matter(fileContents);
 
     return {
-      ...(data as Omit<Post, "slug" | "content">),
+      ...(data as Omit<Post, "content">),
       publishedAt: formatDate(data.publishedAt),
-      slug,
       content,
     };
-  } catch {
+  } catch (error) {
+    console.error(`Error getting post by slug ${slug}:`, error);
     return undefined;
   }
 }

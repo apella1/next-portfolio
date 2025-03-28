@@ -1,9 +1,9 @@
-import { getPostBySlug, getAllPosts } from "@/lib/posts";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { format, parseISO } from "date-fns";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -13,19 +13,22 @@ export async function generateStaticParams() {
 }
 
 interface PageProps {
-  params: Promise<{
+  params: {
     slug: string;
-  }>;
+  };
 }
 
 export default async function Post({ params }: PageProps) {
-  const resolvedParams = await params;
-  
-  if (!resolvedParams?.slug) {
+  const { slug } = await (async () => {
+    "use server";
+    return { slug: params.slug };
+  })();
+
+  if (!slug) {
     notFound();
   }
 
-  const post = getPostBySlug(resolvedParams.slug);
+  const post = await getPostBySlug(params.slug);
 
   if (!post) {
     notFound();
@@ -37,8 +40,12 @@ export default async function Post({ params }: PageProps) {
         <Card className="border-none shadow-none bg-transparent">
           <CardHeader className="space-y-4 px-0">
             <div className="space-y-2">
-              <h1 className="text-4xl font-bold tracking-tight">{post.title}</h1>
-              <p className="text-lg text-muted-foreground">{post.description}</p>
+              <h1 className="text-4xl font-bold tracking-tight">
+                {post.title}
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                {post.description}
+              </p>
             </div>
             <div className="flex items-center space-x-4 text-sm text-muted-foreground">
               <time dateTime={post.publishedAt}>

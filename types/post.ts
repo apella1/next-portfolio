@@ -1,7 +1,7 @@
 export type Post = {
   title: string;
   slug: string;
-  publishedAt: string; // Format: 'YYYY-MM-DD'
+  publishedAt: string;
   description: string;
   image?: string;
   isPublished: boolean;

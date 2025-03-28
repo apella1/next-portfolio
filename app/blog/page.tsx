@@ -17,8 +17,9 @@ const Blog = () => {
     const fetchPosts = async () => {
       try {
         const response = await fetch("/api/posts");
-        const data = await response.json();
-        setPosts(data.filter((post: Post) => post.isPublished));
+        if (!response.ok) throw new Error("Failed to fetch posts");
+        const allPosts = await response.json();
+        setPosts(allPosts.filter((post: Post) => post.isPublished));
       } catch (error) {
         console.error("Error fetching posts:", error);
       } finally {
@@ -29,7 +30,6 @@ const Blog = () => {
     fetchPosts();
   }, []);
 
-  // Get all unique tags from posts
   const getAllTags = (): string[] => {
     const tagSet = new Set<string>();
     posts.forEach((post) => {
@@ -40,7 +40,6 @@ const Blog = () => {
 
   const allTags = getAllTags();
 
-  // Filter posts based on selected tags
   const filteredPosts = posts.filter((post) => {
     if (selectedTags.length === 0) return true;
     return post.tags?.some((tag) => selectedTags.includes(tag));
@@ -88,7 +87,7 @@ const Blog = () => {
                   `cursor-pointer transition-colors`,
                   selectedTags.includes(tag)
                     ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                    : "hover:bg-muted"
+                    : "hover:bg-muted",
                 )}
                 onClick={() => toggleTag(tag)}
               >

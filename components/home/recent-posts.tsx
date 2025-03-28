@@ -1,13 +1,11 @@
-import { getAllPosts } from "@/lib/posts";
 import PostCard from "../blog/post-card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Post } from "@/types/post";
 
 const RecentPosts = () => {
-  const posts = getAllPosts()
-    .filter((post) => post.isPublished)
-    .slice(0, 3);
+  const posts: Array<Post> = [];
 
   if (posts.length === 0) {
     return null;

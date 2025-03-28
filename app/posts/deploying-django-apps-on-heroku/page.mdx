@@ -1,23 +1,21 @@
----
-title: "How to Deploy a Django Project on Heroku"
-slug: "how-to-deploy-django-apps-on-heroku"
-description: "Heroku is a cloud platform where you can deploy, manage and scale your applications. Heroku is fully managed meaning you don't have to care about maintaining your infrastructure which enhances developer productivity. It supports most of the mainstream programming languages so depending on your project you're likely sorted. It also supports multiple third-party add-ons which make scaling your application easier. In this article, I go over how to deploy a Django application on Heroku."
-image: "/blog.png"
-publishedAt: "2023-11-27"
-updatedAt: "2023-11-27"
-isPublished: true
-author: "John Apella"
-tags:
-  - django
-  - djangorestframework
-  - python
-  - heroku
-  - deployments
----
+import { Separator } from "../ui/separator";
+
+export const metadata = {
+  title: "How to Deploy a Django Project on Heroku",
+  description:
+    "Heroku is a cloud platform where you can deploy, manage and scale your applications. Heroku is fully managed meaning you don't have to care about maintaining your infrastructure which enhances developer productivity. It supports most of the mainstream programming languages so depending on your project you're likely sorted. It also supports multiple third-party add-ons which make scaling your application easier. In this article, I go over how to deploy a Django application on Heroku.",
+  publishedAt: "2021-12-01",
+  isPublished: true,
+  author: "Reed Richards",
+  tags: ["python", "django", "heroku"],
+  alternates: {
+    canonical: "/posts/deploying-django-apps-on-heroku",
+  },
+};
+
+# Deploying a Django Project on Heroku
 
 <section>
-<h2> Deploying a Django Project on Heroku</h2>
-
 This article assumes that you're familiar with <a href="https://www.djangoproject.com/" className="text-blue-400">Django</a> and have possibly worked with <a href="https://www.django-rest-framework.org/" className="text-blue-400">Django REST Framework</a>. This is in no way a comprehensive guide on deploying applications on Heroku but a quick guide to just the necessary bits to have your app up and running. I'll try as much as possible to provide links to resources that further discuss the concepts covered. The article also assumes familiarity with [git](https://git-scm.com/) as a version control system. The article also assumes that you have Python installed on your operating system.
 
 In this tutorial you'll learn the following concepts:

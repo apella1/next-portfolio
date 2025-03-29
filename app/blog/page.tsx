@@ -110,7 +110,7 @@ const Blog = () => {
 
       <div className="mt-8 grid gap-4">
         {filteredPosts.map((post) => (
-          <PostCard key={post.slug} post={post} />
+          <PostCard key={post.slug} post={post} isAllBlogsPage />
         ))}
       </div>
 

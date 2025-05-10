@@ -10,9 +10,11 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "",
-    description: "",
-    image: "https://whqfcbgcdxjojnzjppzo.supabase.co/storage/v1/object/public/johnapella.com//zima.png",
+    title: "Zima",
+    description:
+      "Zima is a mental health platform that provides users with access to mental health resources and support from community contributors and professionals.",
+    image:
+      "https://whqfcbgcdxjojnzjppzo.supabase.co/storage/v1/object/public/johnapella.com//zima.png",
     technologies: [
       "Next.js",
       "TypeScript",

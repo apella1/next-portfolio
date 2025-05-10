@@ -26,6 +26,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             {project.githubUrl && (
               <Link
                 href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary"
               >
                 <Github className="h-5 w-5" />
@@ -35,6 +37,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             {project.demoUrl && (
               <Link
                 href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary"
               >
                 <ExternalLink className="h-5 w-5" />

@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
   experimental: {
     mdxRs: true,
   },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "whqfcbgcdxjojnzjppzo.supabase.co",
+        pathname: "/storage/v1/object/public/johnapella.com/**",
+      },
+    ],
+  },
 };
 
 const withMDX = createMDX({});

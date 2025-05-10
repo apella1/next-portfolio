@@ -41,7 +41,7 @@ const HomeHeader = () => {
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               I am a software engineer at LCT Africa. I work mostly with Next.js
-              and React for the UI and Spring Boot for the backend utilizing
+              and React for UI and Spring Boot for backend, utilizing
               Java and Kotlin.
             </p>
           </div>

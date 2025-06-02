@@ -40,7 +40,7 @@ const PostCard = ({
             dateTime={post.publishedAt}
             className="text-sm text-muted-foreground"
           >
-            Published Date: {formattedDate}
+            Date Published: {formattedDate}
           </time>
         </CardContent>
       </Card>

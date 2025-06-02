@@ -13,8 +13,7 @@ export const projects: Project[] = [
     title: "Zima",
     description:
       "Zima is a mental health platform that provides users with access to mental health resources and support from community contributors and professionals.",
-    image:
-      "https://whqfcbgcdxjojnzjppzo.supabase.co/storage/v1/object/public/johnapella.com//zima.png",
+    image: "/projects/zima.png",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -24,6 +23,26 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/apella1/zima-ui",
     demoUrl: "https://zima-ui.vercel.app/",
+    featured: true,
+  },
+  {
+    title: "Inventory Management",
+    description:
+      "This is an inventory management application that allows users to manage their inventory, track stock levels and monitor sales.",
+    image: "/projects/inv-dashboard.png",
+    technologies: [
+      "Kotlin",
+      "Spring Boot",
+      "PostgreSQL",
+      "Docker",
+      "Google Cloud Platform",
+      "Next.js",
+      "TypeScript",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "Shadcn UI",
+    ],
+    demoUrl: "https://inv-mn.vercel.app/",
     featured: true,
   },
 ];

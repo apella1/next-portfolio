@@ -13,12 +13,71 @@ export const metadata = {
 # Deploying Spring Boot Applications on GCP Cloud Run
 
 <div className="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 p-4 my-6">
-  Before diving in, you should be familiar with:
+    Before diving in, you should be familiar with:
 
-  - [Spring Boot basics](https://spring.io/guides/gs/spring-boot/)
-  - [Docker fundamentals](https://docs.docker.com/get-started/)
-  - [Basic GCP concepts](https://cloud.google.com/docs/overview)
-  - [Cloud Run overview](https://cloud.google.com/run/docs/overview/what-is-cloud-run)
+    - [Spring Boot basics](https://spring.io/guides/gs/spring-boot/)
+    - [Docker fundamentals](https://docs.docker.com/get-started/)
+    - [Basic GCP concepts](https://cloud.google.com/docs/overview)
+    - [Cloud Run overview](https://cloud.google.com/run/docs/overview/what-is-cloud-run)
+</div>
+
+<div className="my-8">
+    <h2 className="text-lg font-semibold mb-4">Table of Contents</h2>
+    <ul className="space-y-2">
+        <li>
+            <a href="#prerequisites-setup" className="text-blue-600 dark:text-blue-400 hover:underline">Prerequisites
+                Setup</a>
+        </li>
+        <li>
+            <a href="#spring-boot-application-configuration"
+               className="text-blue-600 dark:text-blue-400 hover:underline">Spring Boot Application Configuration</a>
+        </li>
+        <li>
+            <a href="#the-dockerfile" className="text-blue-600 dark:text-blue-400 hover:underline">The Dockerfile</a>
+        </li>
+        <li>
+            <a href="#common-port-issues" className="text-blue-600 dark:text-blue-400 hover:underline">Common Port
+                Issues and Solutions</a>
+        </li>
+        <li>
+            <a href="#building-and-pushing" className="text-blue-600 dark:text-blue-400 hover:underline">Building and
+                Pushing to Container Registry</a>
+        </li>
+        <li>
+            <a href="#database-configuration" className="text-blue-600 dark:text-blue-400 hover:underline">Database
+                Configuration</a>
+            <ul className="ml-4 mt-2 space-y-2">
+                <li>
+                    <a href="#cloud-sql-connection" className="text-blue-600 dark:text-blue-400 hover:underline">Cloud
+                        SQL Connection</a>
+                </li>
+                <li>
+                    <a href="#external-database-connection"
+                       className="text-blue-600 dark:text-blue-400 hover:underline">External Database Connection</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#monitoring-and-logging" className="text-blue-600 dark:text-blue-400 hover:underline">Monitoring
+                and Logging</a>
+        </li>
+        <li>
+            <a href="#networking-between-services" className="text-blue-600 dark:text-blue-400 hover:underline">Networking
+                Between Services</a>
+        </li>
+        <li>
+            <a href="#deployment-to-cloud-run" className="text-blue-600 dark:text-blue-400 hover:underline">Deployment
+                to Cloud Run</a>
+        </li>
+        <li>
+            <a href="#common-issues" className="text-blue-600 dark:text-blue-400 hover:underline">Common Issues and
+                Troubleshooting</a>
+        </li>
+        <li>
+            <a href="#resources" className="text-blue-600 dark:text-blue-400 hover:underline">Resources for Further
+                Reading</a>
+        </li>
+    </ul>
 </div>
 
 Hey there! 👋 If you're reading this, you're probably trying to figure out how to get your Spring Boot application running smoothly on Google Cloud Run. I've been there, and I'll walk you through the process, including those tricky parts that the official docs sometimes gloss over.
@@ -72,49 +131,50 @@ management:
 ```
 
 <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 p-4 my-6">
-  💡 The `PORT` environment variable is <span className="font-semibold">critical</span> - Cloud Run injects this at runtime, and your app must use it!
+    💡 The `PORT` environment variable is <span className="font-semibold">critical</span> - Cloud Run injects this at
+    runtime, and your app must use it!
 </div>
 
 ## The Dockerfile
 
 Here's a production-ready Dockerfile that addresses common issues:
 
-```dockerfile
+````dockerfile
 # Build stage
 FROM eclipse-temurin:17-jdk-alpine as builder
 WORKDIR /app
 COPY . .
 RUN ./gradlew build -x test
 
-# Run stage
-FROM eclipse-temurin:17-jre-alpine
-WORKDIR /app
+    # Run stage
+    FROM eclipse-temurin:17-jre-alpine
+    WORKDIR /app
 
-# Create a non-root user
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
+    # Create a non-root user
+    RUN addgroup -S spring && adduser -S spring -G spring
+    USER spring:spring
 
-# Copy the built artifact
-COPY --from=builder /app/build/libs/*.jar app.jar
+    # Copy the built artifact
+    COPY --from=builder /app/build/libs/*.jar app.jar
 
-# Configure JVM for containerized environment
-ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75"
+    # Configure JVM for containerized environment
+    ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75"
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s \
-  CMD wget -q --spider http://localhost:8080/actuator/health || exit 1
+    # Health check
+    HEALTHCHECK --interval=30s --timeout=3s \
+      CMD wget -q --spider http://localhost:8080/actuator/health || exit 1
 
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
-```
+    ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
+````
 
 ## Common Port Issues and How to Fix Them
 
 <div className="bg-red-50 dark:bg-red-900/30 border-l-4 border-red-400 p-4 my-6">
-  Common port-related errors you might encounter:
+    Common port-related errors you might encounter:
 
-  1. <span className="text-red-600 font-semibold">Error:</span> "Failed to start application on port 8080"
-  2. <span className="text-red-600 font-semibold">Error:</span> "Address already in use"
-  3. <span className="text-red-600 font-semibold">Error:</span> "Permission denied (port 80)"
+    1. <span className="text-red-600 font-semibold">Error:</span> "Failed to start application on port 8080"
+    2. <span className="text-red-600 font-semibold">Error:</span> "Address already in use"
+    3. <span className="text-red-600 font-semibold">Error:</span> "Permission denied (port 80)"
 </div>
 
 Here's how to fix these issues:
@@ -147,7 +207,7 @@ docker push gcr.io/[PROJECT-ID]/myapp
 ```
 
 <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg my-4">
-  [Screenshot placeholder: Show the successful push to Container Registry]
+    [Screenshot placeholder: Show the successful push to Container Registry]
 </div>
 
 ## Database Configuration
@@ -166,7 +226,8 @@ spring:
 ```
 
 <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 p-4 my-6">
-  When connecting to Cloud SQL, use the Cloud SQL Auth Proxy in your Cloud Run configuration. It's more secure and handles connection management for you.
+    When connecting to Cloud SQL, use the Cloud SQL Auth Proxy in your Cloud Run configuration. It's more secure and
+    handles connection management for you.
 </div>
 
 ### External Database Connection
@@ -203,7 +264,7 @@ logging:
 ```
 
 <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg my-4">
-  [Screenshot placeholder: Cloud Monitoring dashboard showing metrics]
+    [Screenshot placeholder: Cloud Monitoring dashboard showing metrics]
 </div>
 
 ## Networking Between Services
@@ -252,7 +313,7 @@ gcloud run deploy myapp \
 ```
 
 <div className="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-400 p-4 my-6">
-  🎉 Your app should now be running on Cloud Run! Access it at the URL provided in the deployment output.
+    🎉 Your app should now be running on Cloud Run! Access it at the URL provided in the deployment output.
 </div>
 
 ## Common Issues and Troubleshooting
@@ -284,5 +345,6 @@ gcloud sql connect [INSTANCE_NAME] --user=[USER]
 - [Monitoring and debugging Cloud Run services](https://cloud.google.com/run/docs/monitoring)
 
 <div className="bg-purple-50 dark:bg-purple-900/30 border-l-4 border-purple-400 p-4 my-6">
-  Remember to always test your configuration in a staging environment first! Cloud Run makes it easy to create multiple revisions of your service.
+    Remember to always test your configuration in a staging environment first! Cloud Run makes it easy to create
+    multiple revisions of your service.
 </div>

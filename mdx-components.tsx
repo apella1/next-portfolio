@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ComponentPropsWithoutRef } from "react";
-import { highlight } from "sugar-high";
+import { CodeBlock } from "./components/blog/code-block";
 
 type HeadingProps = ComponentPropsWithoutRef<"h1">;
 type ParagraphProps = ComponentPropsWithoutRef<"p">;
@@ -77,9 +77,11 @@ const components = {
       </a>
     );
   },
-  code: ({ children, ...props }: ComponentPropsWithoutRef<"code">) => {
-    const codeHTML = highlight(children as string);
-    return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+  pre: ({ children }: { children: React.ReactNode }) => children,
+  code: ({ className, children }: { className?: string; children: string }) => {
+    const language = className?.replace("language-", "") || "text";
+    if (typeof children !== "string") return null;
+    return <CodeBlock language={language}>{children}</CodeBlock>;
   },
   Table: ({ data }: { data: { headers: string[]; rows: string[][] } }) => (
     <table>

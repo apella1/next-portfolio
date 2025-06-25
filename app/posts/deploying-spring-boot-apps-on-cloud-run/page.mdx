@@ -1,0 +1,288 @@
+export const metadata = {
+    title: "How to Deploy a Spring Boot app on GCP Cloud Run",
+    description: "A comprehensive guide to deploying Spring Boot applications on Google Cloud Run, covering containerization, networking, databases, and common pitfalls",
+    publishedAt: "2025-06-25",
+    isPublished: true,
+    author: "John Apella",
+    tags: ["spring boot", "gcp", "cloud run", "docker", "kubernetes", "networking"],
+    alternates: {
+        canonical: "/posts/deploying-spring-boot-apps-on-cloud-run",
+    },
+};
+
+# Deploying Spring Boot Applications on GCP Cloud Run
+
+<div className="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 p-4 my-6">
+  Before diving in, you should be familiar with:
+
+  - [Spring Boot basics](https://spring.io/guides/gs/spring-boot/)
+  - [Docker fundamentals](https://docs.docker.com/get-started/)
+  - [Basic GCP concepts](https://cloud.google.com/docs/overview)
+  - [Cloud Run overview](https://cloud.google.com/run/docs/overview/what-is-cloud-run)
+</div>
+
+Hey there! 👋 If you're reading this, you're probably trying to figure out how to get your Spring Boot application running smoothly on Google Cloud Run. I've been there, and I'll walk you through the process, including those tricky parts that the official docs sometimes gloss over.
+
+## What We'll Cover
+
+- Setting up a production-ready Spring Boot application
+- Creating an optimized Dockerfile
+- Handling the infamous port configuration issues
+- Setting up Cloud Run with proper security
+- Connecting to databases (both Cloud SQL and external)
+- Monitoring and logging best practices
+- Network configuration for microservices
+
+## Prerequisites Setup
+
+First, make sure you have these tools installed:
+
+```bash
+# Check Java version (we need 17 or higher)
+java -version
+
+# Check Docker
+docker --version
+
+# Install Google Cloud CLI
+brew install google-cloud-sdk  # For macOS
+```
+
+## Spring Boot Application Configuration
+
+Let's start with the application configuration. Create a new `application.yml` file:
+
+```yaml
+server:
+  port: ${PORT:8080}  # This is crucial for Cloud Run
+  shutdown: graceful  # Enables graceful shutdown
+
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 30s  # Gives containers time to shutdown
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+  health:
+    probes:
+      enabled: true  # Enables Kubernetes probes
+```
+
+<div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 p-4 my-6">
+  💡 The `PORT` environment variable is <span className="font-semibold">critical</span> - Cloud Run injects this at runtime, and your app must use it!
+</div>
+
+## The Dockerfile
+
+Here's a production-ready Dockerfile that addresses common issues:
+
+```dockerfile
+# Build stage
+FROM eclipse-temurin:17-jdk-alpine as builder
+WORKDIR /app
+COPY . .
+RUN ./gradlew build -x test
+
+# Run stage
+FROM eclipse-temurin:17-jre-alpine
+WORKDIR /app
+
+# Create a non-root user
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
+
+# Copy the built artifact
+COPY --from=builder /app/build/libs/*.jar app.jar
+
+# Configure JVM for containerized environment
+ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75"
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s \
+  CMD wget -q --spider http://localhost:8080/actuator/health || exit 1
+
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
+```
+
+## Common Port Issues and How to Fix Them
+
+<div className="bg-red-50 dark:bg-red-900/30 border-l-4 border-red-400 p-4 my-6">
+  Common port-related errors you might encounter:
+
+  1. <span className="text-red-600 font-semibold">Error:</span> "Failed to start application on port 8080"
+  2. <span className="text-red-600 font-semibold">Error:</span> "Address already in use"
+  3. <span className="text-red-600 font-semibold">Error:</span> "Permission denied (port 80)"
+</div>
+
+Here's how to fix these issues:
+
+1. Always use the `PORT` environment variable:
+```java
+@Value("${PORT:8080}")
+private String port;
+```
+
+2. Ensure your Dockerfile exposes the correct port:
+```dockerfile
+EXPOSE ${PORT}
+```
+
+3. Check if the port is already in use:
+```bash
+# List processes using port 8080
+lsof -i :8080
+```
+
+## Building and Pushing to Container Registry
+
+```bash
+# Build the image
+docker build -t gcr.io/[PROJECT-ID]/myapp .
+
+# Push to Container Registry
+docker push gcr.io/[PROJECT-ID]/myapp
+```
+
+<div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg my-4">
+  [Screenshot placeholder: Show the successful push to Container Registry]
+</div>
+
+## Database Configuration
+
+### Cloud SQL Connection (Same Network)
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:postgresql:///<DATABASE_NAME>
+    username: ${DB_USER}
+    password: ${DB_PASS}
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+```
+
+<div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 p-4 my-6">
+  When connecting to Cloud SQL, use the Cloud SQL Auth Proxy in your Cloud Run configuration. It's more secure and handles connection management for you.
+</div>
+
+### External Database Connection
+
+For external databases, you'll need to:
+
+1. Configure VPC connector
+2. Set up Cloud NAT
+3. Configure firewall rules
+
+```bash
+# Create VPC connector
+gcloud compute networks vpc-access connectors create my-connector \
+  --network default \
+  --region us-central1 \
+  --range 10.8.0.0/28
+```
+
+## Monitoring and Logging
+
+Add these dependencies to your `build.gradle`:
+
+```groovy
+implementation 'org.springframework.boot:spring-boot-starter-actuator'
+implementation 'io.micrometer:micrometer-registry-prometheus'
+```
+
+Configure logging in `application.yml`:
+
+```yaml
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} trace_id=%X{trace_id} span_id=%X{span_id} - %msg%n"
+```
+
+<div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg my-4">
+  [Screenshot placeholder: Cloud Monitoring dashboard showing metrics]
+</div>
+
+## Networking Between Services
+
+For service-to-service communication:
+
+```yaml
+spring:
+  cloud:
+    gcp:
+      serverless:
+        security:
+          allowedHeaders: ["X-Api-Key"]
+```
+
+Example security configuration:
+
+```java
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/actuator/health").permitAll()
+                .anyRequest().authenticated())
+            .oauth2ResourceServer()
+            .jwt();
+        return http.build();
+    }
+}
+```
+
+## Deployment to Cloud Run
+
+```bash
+gcloud run deploy myapp \
+  --image gcr.io/[PROJECT-ID]/myapp \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --set-env-vars="SPRING_PROFILES_ACTIVE=prod" \
+  --set-cloudsql-instances=[INSTANCE_CONNECTION_NAME] \
+  --vpc-connector=my-connector
+```
+
+<div className="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-400 p-4 my-6">
+  🎉 Your app should now be running on Cloud Run! Access it at the URL provided in the deployment output.
+</div>
+
+## Common Issues and Troubleshooting
+
+1. Container fails to start
+```bash
+# Check container logs
+gcloud logs tail --project=[PROJECT-ID] resource="cloud_run_revision"
+```
+
+2. Database connection issues
+```bash
+# Test database connection
+gcloud sql connect [INSTANCE_NAME] --user=[USER]
+```
+
+3. Memory issues
+```yaml
+# Add to deployment command
+--memory=1Gi \
+--cpu=1
+```
+
+## Resources for Further Reading
+
+- [Spring Boot on Cloud Run official guide](https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-spring-boot-service)
+- [Cloud Run security best practices](https://cloud.google.com/run/docs/securing/security)
+- [Cloud SQL connection patterns](https://cloud.google.com/sql/docs/mysql/connect-overview)
+- [Monitoring and debugging Cloud Run services](https://cloud.google.com/run/docs/monitoring)
+
+<div className="bg-purple-50 dark:bg-purple-900/30 border-l-4 border-purple-400 p-4 my-6">
+  Remember to always test your configuration in a staging environment first! Cloud Run makes it easy to create multiple revisions of your service.
+</div>

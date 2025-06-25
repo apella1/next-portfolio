@@ -1,3 +1,5 @@
+import { SmoothScroll } from '@/components/blog/smooth-scroll';
+
 export const metadata = {
     title: "How to Deploy a Spring Boot app on GCP Cloud Run",
     description: "A comprehensive guide to deploying Spring Boot applications on Google Cloud Run, covering containerization, networking, databases, and common pitfalls",
@@ -10,6 +12,8 @@ export const metadata = {
     },
 };
 
+<SmoothScroll />
+
 # Deploying Spring Boot Applications on GCP Cloud Run
 
 <div className="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 p-4 my-6">
@@ -21,68 +25,59 @@ export const metadata = {
     - [Cloud Run overview](https://cloud.google.com/run/docs/overview/what-is-cloud-run)
 </div>
 
-<div className="my-8">
+<nav className="my-8">
     <h2 className="text-lg font-semibold mb-4">Table of Contents</h2>
     <ul className="space-y-2">
         <li>
-            <a href="#prerequisites-setup" className="text-blue-600 dark:text-blue-400 hover:underline">Prerequisites
-                Setup</a>
+            <a href="#what-well-cover" className="text-blue-600 dark:text-blue-400 hover:underline">What We'll Cover</a>
         </li>
         <li>
-            <a href="#spring-boot-application-configuration"
-               className="text-blue-600 dark:text-blue-400 hover:underline">Spring Boot Application Configuration</a>
+            <a href="#prerequisites" className="text-blue-600 dark:text-blue-400 hover:underline">Prerequisites Setup</a>
         </li>
         <li>
-            <a href="#the-dockerfile" className="text-blue-600 dark:text-blue-400 hover:underline">The Dockerfile</a>
+            <a href="#spring-boot-configuration" className="text-blue-600 dark:text-blue-400 hover:underline">Spring Boot Configuration</a>
         </li>
         <li>
-            <a href="#common-port-issues" className="text-blue-600 dark:text-blue-400 hover:underline">Common Port
-                Issues and Solutions</a>
+            <a href="#dockerfile" className="text-blue-600 dark:text-blue-400 hover:underline">The Dockerfile</a>
         </li>
         <li>
-            <a href="#building-and-pushing" className="text-blue-600 dark:text-blue-400 hover:underline">Building and
-                Pushing to Container Registry</a>
+            <a href="#port-issues" className="text-blue-600 dark:text-blue-400 hover:underline">Common Port Issues</a>
         </li>
         <li>
-            <a href="#database-configuration" className="text-blue-600 dark:text-blue-400 hover:underline">Database
-                Configuration</a>
+            <a href="#container-registry" className="text-blue-600 dark:text-blue-400 hover:underline">Building and Pushing to Container Registry</a>
+        </li>
+        <li>
+            <a href="#database" className="text-blue-600 dark:text-blue-400 hover:underline">Database Configuration</a>
             <ul className="ml-4 mt-2 space-y-2">
                 <li>
-                    <a href="#cloud-sql-connection" className="text-blue-600 dark:text-blue-400 hover:underline">Cloud
-                        SQL Connection</a>
+                    <a href="#cloud-sql" className="text-blue-600 dark:text-blue-400 hover:underline">Cloud SQL Connection</a>
                 </li>
                 <li>
-                    <a href="#external-database-connection"
-                       className="text-blue-600 dark:text-blue-400 hover:underline">External Database Connection</a>
+                    <a href="#external-db" className="text-blue-600 dark:text-blue-400 hover:underline">External Database Connection</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="#monitoring-and-logging" className="text-blue-600 dark:text-blue-400 hover:underline">Monitoring
-                and Logging</a>
+            <a href="#monitoring" className="text-blue-600 dark:text-blue-400 hover:underline">Monitoring and Logging</a>
         </li>
         <li>
-            <a href="#networking-between-services" className="text-blue-600 dark:text-blue-400 hover:underline">Networking
-                Between Services</a>
+            <a href="#networking" className="text-blue-600 dark:text-blue-400 hover:underline">Networking Between Services</a>
         </li>
         <li>
-            <a href="#deployment-to-cloud-run" className="text-blue-600 dark:text-blue-400 hover:underline">Deployment
-                to Cloud Run</a>
+            <a href="#deployment" className="text-blue-600 dark:text-blue-400 hover:underline">Deployment to Cloud Run</a>
         </li>
         <li>
-            <a href="#common-issues" className="text-blue-600 dark:text-blue-400 hover:underline">Common Issues and
-                Troubleshooting</a>
+            <a href="#troubleshooting" className="text-blue-600 dark:text-blue-400 hover:underline">Common Issues and Troubleshooting</a>
         </li>
         <li>
-            <a href="#resources" className="text-blue-600 dark:text-blue-400 hover:underline">Resources for Further
-                Reading</a>
+            <a href="#resources" className="text-blue-600 dark:text-blue-400 hover:underline">Resources for Further Reading</a>
         </li>
     </ul>
-</div>
+</nav>
 
 Hey there! 👋 If you're reading this, you're probably trying to figure out how to get your Spring Boot application running smoothly on Google Cloud Run. I've been there, and I'll walk you through the process, including those tricky parts that the official docs sometimes gloss over.
 
-## What We'll Cover
+<h2 id="what-well-cover">What We'll Cover</h2>
 
 - Setting up a production-ready Spring Boot application
 - Creating an optimized Dockerfile
@@ -92,7 +87,7 @@ Hey there! 👋 If you're reading this, you're probably trying to figure out how
 - Monitoring and logging best practices
 - Network configuration for microservices
 
-## Prerequisites Setup
+<h2 id="prerequisites">Prerequisites Setup</h2>
 
 First, make sure you have these tools installed:
 
@@ -107,7 +102,7 @@ docker --version
 brew install google-cloud-sdk  # For macOS
 ```
 
-## Spring Boot Application Configuration
+<h2 id="spring-boot-configuration">Spring Boot Application Configuration</h2>
 
 Let's start with the application configuration. Create a new `application.yml` file:
 
@@ -135,7 +130,7 @@ management:
     runtime, and your app must use it!
 </div>
 
-## The Dockerfile
+<h2 id="dockerfile">The Dockerfile</h2>
 
 Here's a production-ready Dockerfile that addresses common issues:
 
@@ -167,7 +162,7 @@ RUN ./gradlew build -x test
     ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
 ````
 
-## Common Port Issues and How to Fix Them
+<h2 id="port-issues">Common Port Issues and How to Fix Them</h2>
 
 <div className="bg-red-50 dark:bg-red-900/30 border-l-4 border-red-400 p-4 my-6">
     Common port-related errors you might encounter:
@@ -196,7 +191,7 @@ EXPOSE ${PORT}
 lsof -i :8080
 ```
 
-## Building and Pushing to Container Registry
+<h2 id="container-registry">Building and Pushing to Container Registry</h2>
 
 ```bash
 # Build the image
@@ -210,9 +205,9 @@ docker push gcr.io/[PROJECT-ID]/myapp
     [Screenshot placeholder: Show the successful push to Container Registry]
 </div>
 
-## Database Configuration
+<h2 id="database">Database Configuration</h2>
 
-### Cloud SQL Connection (Same Network)
+<h3 id="cloud-sql">Cloud SQL Connection (Same Network)</h3>
 
 ```yaml
 spring:
@@ -230,7 +225,7 @@ spring:
     handles connection management for you.
 </div>
 
-### External Database Connection
+<h3 id="external-db">External Database Connection</h3>
 
 For external databases, you'll need to:
 
@@ -246,7 +241,7 @@ gcloud compute networks vpc-access connectors create my-connector \
   --range 10.8.0.0/28
 ```
 
-## Monitoring and Logging
+<h2 id="monitoring">Monitoring and Logging</h2>
 
 Add these dependencies to your `build.gradle`:
 
@@ -267,7 +262,7 @@ logging:
     [Screenshot placeholder: Cloud Monitoring dashboard showing metrics]
 </div>
 
-## Networking Between Services
+<h2 id="networking">Networking Between Services</h2>
 
 For service-to-service communication:
 
@@ -299,7 +294,7 @@ public class SecurityConfig {
 }
 ```
 
-## Deployment to Cloud Run
+<h2 id="deployment">Deployment to Cloud Run</h2>
 
 ```bash
 gcloud run deploy myapp \
@@ -316,7 +311,7 @@ gcloud run deploy myapp \
     🎉 Your app should now be running on Cloud Run! Access it at the URL provided in the deployment output.
 </div>
 
-## Common Issues and Troubleshooting
+<h2 id="troubleshooting">Common Issues and Troubleshooting</h2>
 
 1. Container fails to start
 ```bash
@@ -337,7 +332,7 @@ gcloud sql connect [INSTANCE_NAME] --user=[USER]
 --cpu=1
 ```
 
-## Resources for Further Reading
+<h2 id="resources">Resources for Further Reading</h2>
 
 - [Spring Boot on Cloud Run official guide](https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-spring-boot-service)
 - [Cloud Run security best practices](https://cloud.google.com/run/docs/securing/security)

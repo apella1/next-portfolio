@@ -8,9 +8,20 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "John Apella | Fullstack Software Engineer",
+  title: "John Apella",
   description:
-    "Experienced Software Engineer specializing in React, Next.js, TypeScript, Kotlin, Java, and Spring Boot. I excel in building modern web applications within the JVM ecosystem, delivering seamless user experiences and high-quality code. Passionate about leveraging the latest technologies to drive project success and foster collaboration. Explore my portfolio to see how I can help elevate your next project.",
+    "Sharpen your cloud and DevOps skills with practical, real-world labs. Learn Docker, Kubernetes, and cloud platforms through guided challenges",
+  keywords: [
+    "cloud labs",
+    "DevOps labs",
+    "hands-on cloud learning",
+    "Docker labs",
+    "Kubernetes labs",
+    "GCP labs",
+    "DevOps challenges",
+    "cloud skills Africa",
+    "cloud training",
+  ],
 };
 
 export default function RootLayout({

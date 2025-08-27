@@ -21,19 +21,28 @@ async function getPostSlugs(dir: string) {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const postsDirectory = path.join(process.cwd(), "app", "posts");
-  const slugs = await getPostSlugs(postsDirectory);
+  const postSlugs = await getPostSlugs(postsDirectory);
+
+  const labsDirectory = path.join(process.cwd(), "app", "labs");
+  const labSlugs = await getPostSlugs(labsDirectory);
 
   // posts pages
-  const posts = slugs.map((slug) => ({
+  const posts = postSlugs.map((slug) => ({
     url: `/posts/${slug}`,
     lastModified: new Date().toISOString(),
   }));
 
+  // labs pages
+  const labs = labSlugs.map((slug) => ({
+    url: `/labs/${slug}`,
+    lastModified: new Date().toISOString(),
+  }));
+
   // static routes
-  const routes = ["", "/projects", "/blog", "/wakatime-stats"].map((route) => ({
+  const routes = ["", "/projects", "/blog", "/labs", "/about"].map((route) => ({
     url: route,
     lastModified: new Date().toISOString(),
   }));
 
-  return [...routes, ...posts];
+  return [...routes, ...posts, ...labs];
 }

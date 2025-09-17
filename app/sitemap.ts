@@ -2,6 +2,8 @@ import { promises as fs } from "fs";
 import { MetadataRoute } from "next";
 import path from "path";
 
+export const dynamic = "force-static";
+
 async function getPostSlugs(dir: string) {
   const entries = await fs.readdir(dir, {
     recursive: true,

@@ -6,6 +6,13 @@ import { DiGithubBadge } from "react-icons/di";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiLinkedin } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import WakatimeWidget from "@/components/about/wakatime";
 
 const socialIcons: SocialIcon[] = [
   {
@@ -24,16 +31,6 @@ const socialIcons: SocialIcon[] = [
     icon: <FaXTwitter className="h-5 w-5" />,
   },
 ];
-
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import WakatimeWidget from "@/components/about/wakatime";
 
 const AboutPage = () => {
   return (
@@ -55,114 +52,6 @@ const AboutPage = () => {
           </p>
         </div>
 
-        <div className="w-full max-w-4xl text-left">
-          <Tabs defaultValue="seeds" className="w-full">
-            <TabsList>
-              <TabsTrigger value="seeds">Seeds (ideas)</TabsTrigger>
-              <TabsTrigger value="sprouts">Sprouts (in-progress)</TabsTrigger>
-              <TabsTrigger value="bloom">Bloom (shipped)</TabsTrigger>
-            </TabsList>
-            <TabsContent value="seeds">
-              <div className="grid gap-4 md:grid-cols-2">
-                {[
-                  "DX tooling notes",
-                  "Tiny k8s recipes",
-                  "Ops runbooks",
-                  "Testing strategies",
-                ].map((item, idx) => (
-                  <Card key={idx}>
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">{item}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">
-                        Drafts I’m refining into focused labs.
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
-            <TabsContent value="sprouts">
-              <div className="grid gap-4 md:grid-cols-2">
-                {[
-                  "Container security quickstart",
-                  "Observability on rails",
-                ].map((item, idx) => (
-                  <Card key={idx}>
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">{item}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">
-                        Currently building. Expect copyable snippets and
-                        diagrams.
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
-            <TabsContent value="bloom">
-              <div className="grid gap-4 md:grid-cols-2">
-                {[
-                  "Sample Lab: Interactive Content",
-                  "Infra as Code starter",
-                ].map((item, idx) => (
-                  <Card key={idx}>
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">{item}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">
-                        Shipped pieces you can explore in the Labs.
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
-        </div>
-
-        <div className="w-full max-w-3xl text-left mt-8" id="garden-telemetry">
-          <h3 className="text-xl font-semibold mb-2 text-center">
-            Garden telemetry
-          </h3>
-          <WakatimeWidget />
-        </div>
-
-        <div className="w-full max-w-3xl text-left mt-8" id="fun-facts">
-          <h3 className="text-xl font-semibold mb-2 text-center">
-            Fun facts & philosophy
-          </h3>
-          <Accordion type="single" collapsible>
-            <AccordionItem value="fact-1">
-              <AccordionTrigger>
-                Principle: ship tiny, ship often
-              </AccordionTrigger>
-              <AccordionContent>
-                Small, repeatable wins beat massive, fragile launches. Labs
-                reflect that rhythm.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="fact-2">
-              <AccordionTrigger>My happy place</AccordionTrigger>
-              <AccordionContent>
-                Good docs, clean diagrams, and an hour of quiet to turn an idea
-                into a minimal demo.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="fact-3">
-              <AccordionTrigger>What I’m optimizing for</AccordionTrigger>
-              <AccordionContent>
-                Real-world usefulness. If a lab doesn’t help you ship something
-                better, it doesn’t belong here.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
-
         <div className="flex flex-col space-y-1.5 md:space-y-0 md:flex-row md:items-center md:gap-4 md:px-4 mt-8">
           {socialIcons.map((socialIcon, index) => (
             <Button
@@ -182,6 +71,13 @@ const AboutPage = () => {
               </Link>
             </Button>
           ))}
+        </div>
+
+        <div className="w-full max-w-3xl text-left mt-8" id="garden-telemetry">
+          <h3 className="text-xl font-semibold mb-2 text-center">
+            Garden telemetry
+          </h3>
+          <WakatimeWidget />
         </div>
       </div>
     </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 export default function WakatimeWidget() {
@@ -12,14 +11,12 @@ export default function WakatimeWidget() {
   const profileUrl = "https://wakatime.com/@apella";
 
   return (
-    <Card>
-      <CardHeader className="pb-2">
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-xl">Garden telemetry (WakaTime)</CardTitle>
-          <Badge variant="secondary">coding time</Badge>
-        </div>
-      </CardHeader>
-      <CardContent className="w-full">
+    <section className="w-full">
+      <div className="flex items-center justify-between">
+        <h1 className="text-xl">Garden telemetry (WakaTime)</h1>
+        <Badge variant="secondary">coding time</Badge>
+      </div>
+      <section>
         <div className="">
           <figure className="flex flex-col items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -58,7 +55,7 @@ export default function WakatimeWidget() {
             View full WakaTime profile →
           </Link>
         </div>
-      </CardContent>
-    </Card>
+      </section>
+    </section>
   );
 }

@@ -43,11 +43,10 @@ const AboutPage = () => {
           </h2>
           <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed max-w-5xl">
             Hi. I'm John Apella. I'm a software engineer currently leaning
-            towards DevOps and site reliability engineering. I'm open to
-            volunteering as a DevOps engineer for the causes listed on my
-            LinkedIn profile. If you have any questions based on what I talk
-            about here or just want to talk, you can reach out on X or LinkedIn,
-            info below.
+            towards DevOps and site reliability engineering. I also volunteer my
+            skills to causes I care about, which you’ll find on my LinkedIn. If
+            you have any questions based on what I talk about here or just want
+            to talk, you can reach out on X or LinkedIn, info below.
           </p>
         </div>
 

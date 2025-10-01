@@ -16,7 +16,7 @@ export default function Certifications({ certifications }: Props) {
       <div className="mb-6">
         <div className="mb-6">
           <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-            My Certifications
+            My Certifications 🏅
           </h3>
           <p className="text-sm text-muted-foreground mb-4">
             Professional certifications and achievements. Click on any badge to
@@ -75,7 +75,7 @@ export default function Certifications({ certifications }: Props) {
           ))}
         </div>
 
-        {/* certification list */}
+        {/* Certification list for accessibility and SEO */}
         <div className="mb-4">
           <h4 className="text-sm font-medium mb-3 text-muted-foreground">
             Certification Details:
@@ -96,13 +96,26 @@ export default function Certifications({ certifications }: Props) {
                   <span>{cert.title}</span>
                 )}
                 <span className="text-muted-foreground">
-                  {" "}
-                  - {cert.issuer}
-                  {cert.issuedDate && ` (${cert.issuedDate})`}
+                  {" "}- {cert.issuer}
                 </span>
               </li>
             ))}
           </ul>
+
+          {/* Link to view all certifications on Credly */}
+          <div className="mt-4 pt-3 border-t border-muted-foreground/20">
+            <p className="text-sm text-muted-foreground">
+              See all my certifications here 👉🏻{" "}
+              <Link
+                href="https://www.credly.com/users/john-apella"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-medium"
+              >
+                Credly
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </section>

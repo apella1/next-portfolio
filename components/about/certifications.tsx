@@ -16,7 +16,7 @@ export default function Certifications({ certifications }: Props) {
       <div className="mb-6">
         <div className="mb-6">
           <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-            My Certifications 🏅
+            My Certifications
           </h3>
           <p className="text-sm text-muted-foreground mb-4">
             Professional certifications and achievements. Click on any badge to

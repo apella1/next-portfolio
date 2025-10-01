@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Rocket, FlaskConical, Repeat, Users } from "lucide-react";
+import { FlaskConical, Repeat, Rocket, Users } from "lucide-react";
 
 export default function ValueProps() {
   const items = [
@@ -16,26 +16,17 @@ export default function ValueProps() {
       desc: "Each lab includes context, a goal, constraints, and stretch ideas.",
       tag: "From idea → demo",
     },
-    {
-      icon: Repeat,
-      title: "Re-usable playbooks",
-      desc: "Copyable snippets, diagrams, and checklists to accelerate delivery.",
-      tag: "Copy + adapt",
-    },
-    {
-      icon: Users,
-      title: "Community-first",
-      desc: "Join early, shape the roadmap, and access private notes and updates.",
-      tag: "Early access",
-    },
   ];
 
   return (
     <section className="container py-8 md:py-12">
       <div className="space-y-2 text-center">
-        <h2 className="text-3xl font-bold tracking-tight">Why this exists</h2>
+        <h2 className="text-3xl font-bold tracking-tight">
+          Turn Learning Into Progress
+        </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          A focused garden of engineering value: concise, practical labs that help you grow and ship.
+          Small, consistent wins build confidence. Each lab is designed to help
+          you move forward without overwhelm.
         </p>
       </div>
       <div className="grid gap-4 mt-6 md:grid-cols-2">

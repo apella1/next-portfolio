@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
 
 export default function WakatimeWidget() {
   const languagesAllTime =
@@ -12,10 +11,6 @@ export default function WakatimeWidget() {
 
   return (
     <section className="w-full">
-      <div className="flex items-center justify-between">
-        <h1 className="text-xl">Garden telemetry (WakaTime)</h1>
-        <Badge variant="secondary">coding time</Badge>
-      </div>
       <section>
         <div className="">
           <figure className="flex flex-col items-center">

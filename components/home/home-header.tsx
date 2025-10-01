@@ -8,10 +8,11 @@ const HomeHeader = () => {
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Grow your engineering skills in my garden 🌱
+              Let’s Build, Together
             </h1>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Two practical labs every month. Short, focused, and built to help you ship. Join the waitlist to get early access and shape what grows next.
+              Join a growing circle of builders who learn through doing. Two
+              hands-on labs each month. Focused and practical.
             </p>
           </div>
           <div className="w-full max-w-md space-y-2">
@@ -21,11 +22,8 @@ const HomeHeader = () => {
                 placeholder="Enter your email"
                 className="max-w-lg flex-1"
               />
-              <Button type="submit">Join Waitlist</Button>
+              <Button type="submit">Subscribe</Button>
             </form>
-            <p className="text-xs text-muted-foreground">
-              You’ll get value, not spam. Unsubscribe any time.
-            </p>
           </div>
         </div>
       </div>

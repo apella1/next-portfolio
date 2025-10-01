@@ -6,12 +6,6 @@ import { DiGithubBadge } from "react-icons/di";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiLinkedin } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import WakatimeWidget from "@/components/about/wakatime";
 
 const socialIcons: SocialIcon[] = [
@@ -43,13 +37,9 @@ const AboutPage = () => {
         </section>
         <div className="space-y-2">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-            Welcome to my garden 🌿
+            About Me
           </h2>
-          <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed max-w-3xl">
-            I cultivate useful engineering things here. If you want the serious
-            CV stuff, it’s on LinkedIn. If you’re curious who I am and what I’m
-            growing, stay a while.
-          </p>
+          <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed max-w-3xl"></p>
         </div>
 
         <div className="flex flex-col space-y-1.5 md:space-y-0 md:flex-row md:items-center md:gap-4 md:px-4 mt-8">
@@ -73,9 +63,9 @@ const AboutPage = () => {
           ))}
         </div>
 
-        <div className="w-full max-w-3xl text-left mt-8" id="garden-telemetry">
-          <h3 className="text-xl font-semibold mb-2 text-center">
-            Garden telemetry
+        <div className="w-full text-left pt-6 lg:px-24 2xl:px-60" id="garden-telemetry">
+          <h3 className="text-xl font-semibold mb-2">
+            Coding Stats - Powered by Wakatime
           </h3>
           <WakatimeWidget />
         </div>

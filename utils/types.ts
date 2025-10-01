@@ -14,3 +14,13 @@ export type FavoriteTechnology = {
   imgAlt: string;
   href: string;
 };
+
+export type Certification = {
+  id?: string;
+  title: string;
+  issuer: string;
+  issuedDate?: string;
+  description?: string;
+  href?: string; // link to verification or cert details
+  imageUrl?: string; // certification badge image URL
+};

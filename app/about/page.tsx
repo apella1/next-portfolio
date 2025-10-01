@@ -7,6 +7,8 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FiLinkedin } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
 import WakatimeWidget from "@/components/about/wakatime";
+import Certifications from "@/components/about/certifications";
+import { certifications } from "@/data/certifications";
 
 const socialIcons: SocialIcon[] = [
   {
@@ -63,7 +65,14 @@ const AboutPage = () => {
           ))}
         </div>
 
-        <div className="w-full text-left pt-6 lg:px-24 2xl:px-60" id="garden-telemetry">
+        <div className="w-full text-left pt-6 lg:px-24 2xl:px-60">
+          <Certifications certifications={certifications} />
+        </div>
+
+        <div
+          className="w-full text-left pt-6 lg:px-24 2xl:px-60"
+          id="garden-telemetry"
+        >
           <h3 className="text-xl font-semibold mb-2">
             Coding Stats - Powered by Wakatime
           </h3>

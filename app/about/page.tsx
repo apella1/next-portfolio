@@ -41,7 +41,14 @@ const AboutPage = () => {
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
             About Me
           </h2>
-          <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed max-w-3xl"></p>
+          <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed max-w-5xl">
+            Hi. I'm John Apella. I'm a software engineer currently leaning
+            towards DevOps and site reliability engineering. I'm open to
+            volunteering as a DevOps engineer for the causes listed on my
+            LinkedIn profile. If you have any questions based on what I talk
+            about here or just want to talk, you can reach out on X or LinkedIn,
+            info below.
+          </p>
         </div>
 
         <div className="flex flex-col space-y-1.5 md:space-y-0 md:flex-row md:items-center md:gap-4 md:px-4 mt-8">

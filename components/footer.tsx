@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div className="lg:col-span-1">
             <h3 className="text-lg font-semibold">
-              Subscribe to the newsletter
+              Subscribe to my newsletter
             </h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Get notified when new labs and posts are published.

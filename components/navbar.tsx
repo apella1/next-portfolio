@@ -6,60 +6,17 @@ import { MenuItem } from "@/utils/types";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ThemeSwitcher from "./theme-switcher";
-import { Post } from "@/types/post";
 
 export default function Navbar() {
-  const [posts, setPosts] = useState<Post[]>([]);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch("/api/posts");
-        if (!response.ok) throw new Error("Failed to fetch posts");
-        const allPosts = await response.json();
-        const recentPosts = allPosts
-          .filter((post: Post) => post.isPublished)
-          .sort(
-            (a: Post, b: Post) =>
-              new Date(b.publishedAt).getTime() -
-              new Date(a.publishedAt).getTime(),
-          )
-          .slice(0, 3);
-        setPosts(recentPosts);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
-
-    fetchPosts();
-  }, []);
-
-  let menuItems: MenuItem[] = [
-    {
-      name: "Home",
-      href: "/",
-    },
-    {
-      name: "Projects",
-      href: "/projects",
-    },
-    {
-      name: "Wakatime Stats",
-      href: "/wakatime-stats",
-    },
+  const menuItems: MenuItem[] = [
+    { name: "Home", href: "/" },
+    { name: "Labs", href: "/labs" },
+    { name: "Blog", href: "/blog" },
+    { name: "Projects", href: "/projects" },
+    { name: "About", href: "/about" },
   ];
-
-  if (posts.length) {
-    menuItems = [
-      ...menuItems,
-      {
-        name: "Recent Posts",
-        href: "/blog",
-      },
-    ];
-  }
 
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);

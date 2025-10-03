@@ -1,13 +1,24 @@
-import Link from "next/link";
-import { ComponentPropsWithoutRef } from "react";
-import { highlight } from "sugar-high";
+import type { ComponentPropsWithoutRef } from "react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import {
+  Anchor,
+  Pre,
+  Callout,
+  Code,
+  HeadingProps,
+  ParagraphProps,
+  ListProps,
+  ListItemProps,
+} from "@/components/mdx/mdx-client";
 
-type HeadingProps = ComponentPropsWithoutRef<"h1">;
-type ParagraphProps = ComponentPropsWithoutRef<"p">;
-type ListProps = ComponentPropsWithoutRef<"ul">;
-type ListItemProps = ComponentPropsWithoutRef<"li">;
-type AnchorProps = ComponentPropsWithoutRef<"a">;
-type BlockquoteProps = ComponentPropsWithoutRef<"blockquote">;
+
+
 
 const components = {
   h1: (props: HeadingProps) => (
@@ -48,39 +59,9 @@ const components = {
   strong: (props: ComponentPropsWithoutRef<"strong">) => (
     <strong className="font-medium" {...props} />
   ),
-  a: ({ href, children, ...props }: AnchorProps) => {
-    const className =
-      "text-blue-500 hover:text-blue-700 dark:text-gray-400 hover:dark:text-gray-300 dark:underline dark:underline-offset-2 dark:decoration-gray-800";
-    if (href?.startsWith("/")) {
-      return (
-        <Link href={href} className={className} {...props}>
-          {children}
-        </Link>
-      );
-    }
-    if (href?.startsWith("#")) {
-      return (
-        <a href={href} className={className} {...props}>
-          {children}
-        </a>
-      );
-    }
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-        {...props}
-      >
-        {children}
-      </a>
-    );
-  },
-  code: ({ children, ...props }: ComponentPropsWithoutRef<"code">) => {
-    const codeHTML = highlight(children as string);
-    return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
-  },
+  a: Anchor,
+  pre: Pre,
+  code: Code,
   Table: ({ data }: { data: { headers: string[]; rows: string[][] } }) => (
     <table>
       <thead>
@@ -101,12 +82,15 @@ const components = {
       </tbody>
     </table>
   ),
-  blockquote: (props: BlockquoteProps) => (
-    <blockquote
-      className="ml-[0.075em] border-l-3 border-gray-300 pl-4 text-gray-700 dark:border-zinc-600 dark:text-zinc-300"
-      {...props}
-    />
-  ),
+  blockquote: Callout,
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
 };
 
 declare global {

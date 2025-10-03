@@ -1,76 +1,21 @@
-import profilePic from "@/public/profile.webp";
-import { SocialIcon } from "@/utils/types";
-import Image from "next/image";
-import Link from "next/link";
-import { DiGithubBadge } from "react-icons/di";
-import { FaXTwitter } from "react-icons/fa6";
-import { FiLinkedin } from "react-icons/fi";
-import { Button } from "../ui/button";
-
-const socialIcons: SocialIcon[] = [
-  {
-    name: "Github",
-    href: "https://github.com/apella1",
-    icon: <DiGithubBadge className="h-5 w-5" />,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://linkedin.com/in/johnapella",
-    icon: <FiLinkedin className="h-5 w-5" />,
-  },
-  {
-    name: "",
-    href: "https://x.com/apella_john",
-    icon: <FaXTwitter className="h-5 w-5" />,
-  },
-];
+import EmailOctopusForm from "@/components/email-octopus-form";
 
 const HomeHeader = () => {
   return (
-    <header className="flex flex-col px-4 py-12 md:py-24 lg:py-32 sm:px-16 xl:px-28">
+    <header className="flex flex-col px-4 py-12 sm:px-16 xl:px-28">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <section className="px-4">
-            <div className="w-fit rounded-full">
-              <Image src={profilePic} alt="" className="w-44 rounded-full" />
-            </div>
-          </section>
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Hi, I'm John Apella
-            </h2>
-            <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              As a software engineer, I specialise in designing and delivering
-              scalable, secure and high-performance digital solutions. I excel
-              at transforming complex business requirements into efficient code
-              and resilient cloud architectures that seamlessly integrate with
-              existing systems. By leveraging modern web technologies and
-              cloud-native infrastructure, I build future-proof platforms that
-              prioritise reliability, performance and exceptional user
-              experience. I bring a strong systems mindset and a commitment to
-              technical excellence to both fast-moving teams and mature
-              enterprises.
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              Let’s Build, Together
+            </h1>
+            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Join a growing circle of builders who learn through doing. Two
+              hands-on labs each month. Focused and practical.
             </p>
           </div>
-          <div className="flex flex-col space-y-1.5 md:space-y-0 md:flex-row md:items-center md:gap-4 md:px-4">
-            {socialIcons.map((socialIcon, index) => (
-              <Button
-                key={index}
-                variant="outline"
-                size="lg"
-                className="space-x-2"
-                asChild
-              >
-                <Link
-                  href={socialIcon.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {socialIcon.icon}
-                  <span>{socialIcon.name}</span>
-                </Link>
-              </Button>
-            ))}
+          <div className="w-full max-w-md space-y-2">
+            <EmailOctopusForm className="flex justify-center" />
           </div>
         </div>
       </div>

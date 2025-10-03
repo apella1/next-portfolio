@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  output: "export",
   pageExtensions: ["ts", "tsx", "mdx"],
   //rehype or remark plugins can't be used with the mdxRs option
   experimental: {
@@ -10,6 +11,7 @@ const nextConfig: NextConfig = {
   },
 
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

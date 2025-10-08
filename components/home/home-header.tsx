@@ -10,8 +10,8 @@ const HomeHeader = () => {
               Let’s Build, Together
             </h1>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Join a growing circle of builders who learn through doing. Two
-              hands-on labs each month. Focused and practical.
+              Join a growing circle of builders who learn through doing. One
+              hands-on labs each week. Focused and practical.
             </p>
           </div>
           <div className="w-full max-w-md space-y-2">

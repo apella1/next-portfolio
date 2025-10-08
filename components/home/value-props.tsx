@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FlaskConical, Repeat, Rocket, Users } from "lucide-react";
+import { FlaskConical, Rocket } from "lucide-react";
 
 export default function ValueProps() {
   const items = [
@@ -8,7 +8,7 @@ export default function ValueProps() {
       icon: Rocket,
       title: "Practical, no-fluff labs",
       desc: "Build real skills with guided, hands-on scenarios you can ship at work.",
-      tag: "2 new labs / month",
+      tag: "1 new lab / week",
     },
     {
       icon: FlaskConical,

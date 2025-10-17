@@ -5,10 +5,11 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: "export",
   pageExtensions: ["ts", "tsx", "mdx"],
-  //rehype or remark plugins can't be used with the mdxRs option
-  experimental: {
-    mdxRs: true,
-  },
+  // mdxRs doesn't support custom MDX components via useMDXComponents()
+  // disabled to enable custom component styling
+  // experimental: {
+  //   mdxRs: true,
+  // },
 
   images: {
     unoptimized: true,

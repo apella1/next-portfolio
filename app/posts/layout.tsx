@@ -3,5 +3,11 @@ export default function PostLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="mx-auto py-8 min-h-[80vh]">{children}</div>;
+  return (
+    <article className="mx-auto py-8 min-h-[80vh] max-w-3xl px-4">
+      <div className="prose prose-gray dark:prose-invert max-w-none">
+        {children}
+      </div>
+    </article>
+  );
 }

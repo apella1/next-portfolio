@@ -3,5 +3,5 @@ export default function PostLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="max-w-5xl mx-auto py-8">{children}</div>;
+  return <div className="mx-auto py-8 min-h-[80vh]">{children}</div>;
 }

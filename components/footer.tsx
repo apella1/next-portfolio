@@ -34,7 +34,7 @@ export default function Footer() {
               Subscribe to my newsletter
             </h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Get notified when new labs and posts are published.
+              Get notified when new labs are out
             </p>
           </div>
           <div className="lg:col-span-2">

@@ -1,16 +1,17 @@
 export const metadata = {
   title: "How I Set Up My Email Newsletter",
   publishedAt: "2025-10-14",
-  description: "AWS SES",
+  description:
+    "In this article, I provide a little context on my learning journey and my motivations for setting up an email newsletter.",
   author: "John Apella",
   isPublished: true,
   tags: ["aws", "email"],
   image: "/blog.png",
 };
 
-<h1>How I set up my email newsletter</h1>
+<h1>How I Set Up my Email Newsletter</h1>
 
-<section className="flex flex-col space-y-3">
+<section>
 <p>
   I had always wondered how one sets up a custom email address but never knew
   where to start from to learn the information I needed in order to understand
@@ -23,6 +24,9 @@ export const metadata = {
   confidence with the computer networking fundamentals, I started looking for
   something to build on top of to get some practice. I did a couple of network
   subnetting on paper as that was the natural next step for me to practice more.
+</p>
+
+<p>
   I extended this learning to Google Cloud Platform where I found my new
   learnings very useful. This began from creating my first VPC, a Compute Engine
   instance, load balancing across managed and unmanaged instance groups,
@@ -30,7 +34,7 @@ export const metadata = {
   Cloud Platform and working with Google Kubernetes Engine, just to mention a
   few technologies I found fascinating in my first interactions. This was done
   through the [Google Cloud Skills Boost](https://www.cloudskillsboost.google/)
-  platform which had labs that were beginner focused and slowly progressed in
+  platform which had labs that were beginner focused, and that slowly progressed in
   difficulty to keep the learning challenging but still manageable to walk
   through. I picked the Cloud Engineer learning path that I worked through and
   registered for the [Google Associate Cloud
@@ -38,7 +42,7 @@ export const metadata = {
   certification which I achieved after my practice time. I'm looking forward to
   expanding my skills in the cloud and gearing more towards site reliability
   engineering which has been growingly becoming fascinating to me, thanks to the
-  leanings and amazing stories from the [Google SRE
+  learnings and amazing stories from the [Google SRE
   Podcast](https://sre.google/prodcast/).
 </p>
 
@@ -56,19 +60,23 @@ export const metadata = {
   the learning. From this point, I had to stop wondering and do the reading. I
   already had a custom domain (johnapella.com), and building from the first
   principles thought, "How would I get labs@johnapella.com to send my newsletter
-  from?". That lead to me AWS Simple Email Service and AWS Workmail. I went
-  through their setup instructions, created an identity around my domain and
-  verified that on my DNS provider. This involved a lot of verifications and
-  setups to improve email deliverability, a new realm that I was quick learning
-  the basics of. I then proceeded to create the `labs` user in Workmail to
-  finally get the email I wanted. Then I had to have a place from which I could
-  manage my email list. Did some research and settled with Email Octopus Connect
-  due to its interoperability with AWS Simple Email Service. Email Octopus, too,
-  has its own learnings that I need to get familiar with. This leaves me with a
-  lot of learning as I keep on builing on the cloud and around cloud
-  technologies and working to improve on the quality of the labs even as I look
-  to send my first lab out to learners like me. This might have already happened
-  depending on when you're reading this.
+  from?".
+</p>
+
+<p>
+  That lead me to AWS Simple Email Service and AWS Workmail. I went through
+  their setup instructions, created an identity around my domain and verified
+  that on my DNS provider. This involved a lot of verifications and setups to
+  improve email deliverability, a new realm that I was quick learning the basics
+  of. I then proceeded to create the `labs` user in Workmail to finally get the
+  email I wanted. Then I had to have a place from which I could manage my email
+  list. Did some research and settled with Email Octopus Connect due to its
+  interoperability with AWS Simple Email Service. Email Octopus, too, had its
+  own learnings that I needed to get familiar with. This leaves me with a lot of
+  learning as I keep on building on the cloud and around cloud technologies and
+  working to improve on the quality of the labs even as I look to send my first
+  lab out to learners like me. This might have already happened depending on
+  when you're reading this.
 </p>
 
 <p>

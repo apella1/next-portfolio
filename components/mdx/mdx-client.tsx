@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ComponentPropsWithoutRef, useState } from "react";
 import { highlight } from "sugar-high";
-import { Copy, Check } from "lucide-react";
+import { Check, Copy } from "lucide-react";
 
 // Client-only MDX helper components
 
@@ -57,14 +57,17 @@ export const Callout = (props: BlockquoteProps) => {
   );
 };
 
-export const Code = ({ children, ...props }: ComponentPropsWithoutRef<"code">) => {
+export const Code = ({
+  children,
+  ...props
+}: ComponentPropsWithoutRef<"code">) => {
   const codeHTML = highlight(children as string);
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 };
 
 export const Anchor = ({ href, children, ...props }: AnchorProps) => {
   const className =
-    "text-blue-500 hover:text-blue-700 dark:text-gray-400 hover:dark:text-gray-300 dark:underline dark:underline-offset-2 dark:decoration-gray-800";
+    "text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 underline underline-offset-2 decoration-blue-500 dark:decoration-blue-400";
   if (href?.startsWith("/")) {
     return (
       <Link href={href} className={className} {...props}>

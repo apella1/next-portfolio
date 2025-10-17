@@ -51,9 +51,11 @@ const LabsClient = ({ initialLabs }: LabsClientProps) => {
           <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             Explore my labs, tutorials, and insights on various topics
           </p>
-          <p className="text-muted-foreground">
-            Click on the tags below to filter labs by topic
-          </p>
+          {publishedLabs.length > 0 && (
+            <p className="text-muted-foreground">
+              Click on the tags below to filter labs by topic
+            </p>
+          )}
         </div>
 
         <div className="w-full max-w-4xl">
@@ -95,7 +97,9 @@ const LabsClient = ({ initialLabs }: LabsClientProps) => {
 
       {filteredLabs.length === 0 && (
         <div className="text-center text-muted-foreground py-12">
-          No labs found matching the selected tags.
+          {selectedTags.length > 0
+            ? "No labs found matching the selected tags."
+            : "No labs available yet. Check back soon!"}
         </div>
       )}
     </section>

@@ -25,7 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const postsDirectory = path.join(process.cwd(), "app", "posts");
   const postSlugs = await getPostSlugs(postsDirectory);
 
-  const labsDirectory = path.join(process.cwd(), "app", "labs");
+  const labsDirectory = path.join(process.cwd(), "app", "newsletter");
   const labSlugs = await getPostSlugs(labsDirectory);
 
   // posts pages

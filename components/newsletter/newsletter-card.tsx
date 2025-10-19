@@ -3,7 +3,7 @@ import { format, parseISO } from "date-fns";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const LabCard = ({
+const NewsletterCard = ({
   lab,
   isAllLabsPage,
 }: {
@@ -25,7 +25,7 @@ const LabCard = ({
         <CardHeader className="space-y-0 pb-2">
           <CardTitle>
             <Link
-              href={`/labs/${lab.slug}`}
+              href={`/newsletter/${lab.slug}`}
               className="text-xl hover:text-primary transition-colors"
             >
               {lab.title}
@@ -48,4 +48,4 @@ const LabCard = ({
   );
 };
 
-export default LabCard;
+export default NewsletterCard;

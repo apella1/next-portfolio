@@ -1,6 +1,6 @@
 "use client";
 
-import LabCard from "@/components/labs/lab-card";
+import NewsletterCard from "@/components/newsletter/newsletter-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -12,7 +12,7 @@ interface LabsClientProps {
   initialLabs: Lab[];
 }
 
-const LabsClient = ({ initialLabs }: LabsClientProps) => {
+const NewsletterClient = ({ initialLabs }: LabsClientProps) => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const publishedLabs = initialLabs.filter((lab) => lab.isPublished);
@@ -43,7 +43,7 @@ const LabsClient = ({ initialLabs }: LabsClientProps) => {
 
   return (
     <section className="container py-12 min-h-screen">
-      <div className="flex flex-col items-center justify-center space-y-4 text-center">
+      <div className="flex flex-col">
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
             Labs
@@ -91,19 +91,19 @@ const LabsClient = ({ initialLabs }: LabsClientProps) => {
 
       <div className="mt-8 grid gap-4">
         {filteredLabs.map((lab) => (
-          <LabCard key={lab.slug} lab={lab} isAllLabsPage />
+          <NewsletterCard key={lab.slug} lab={lab} isAllLabsPage />
         ))}
       </div>
 
       {filteredLabs.length === 0 && (
         <div className="text-center text-muted-foreground py-12">
           {selectedTags.length > 0
-            ? "No labs found matching the selected tags."
-            : "No labs available yet. Check back soon!"}
+            ? "No newsletter found matching the selected tags."
+            : "No newsletter available yet. Check back soon!"}
         </div>
       )}
     </section>
   );
 };
 
-export default LabsClient;
+export default NewsletterClient;

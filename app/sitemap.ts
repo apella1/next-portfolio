@@ -34,17 +34,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date().toISOString(),
   }));
 
-  // labs pages
+  // newsletter pages
   const labs = labSlugs.map((slug) => ({
-    url: `/labs/${slug}`,
+    url: `/newsletter/${slug}`,
     lastModified: new Date().toISOString(),
   }));
 
   // static routes
-  const routes = ["", "/projects", "/blog", "/labs", "/about"].map((route) => ({
-    url: route,
-    lastModified: new Date().toISOString(),
-  }));
+  const routes = ["", "/projects", "/blog", "/newsletter", "/about"].map(
+    (route) => ({
+      url: route,
+      lastModified: new Date().toISOString(),
+    }),
+  );
 
   return [...routes, ...posts, ...labs];
 }

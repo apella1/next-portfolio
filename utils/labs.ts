@@ -3,7 +3,7 @@ import path from "path";
 import { Lab } from "@/types/lab";
 
 export async function getLabs(): Promise<Lab[]> {
-  const labsDirectory = path.join(process.cwd(), "app", "labs");
+  const labsDirectory = path.join(process.cwd(), "app", "newsletter");
   const entries = await fs.readdir(labsDirectory, {
     recursive: true,
     withFileTypes: true,

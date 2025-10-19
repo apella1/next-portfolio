@@ -10,14 +10,14 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "John Apella",
   description:
-    "Sharpen your cloud and DevOps skills with practical, real-world labs. Learn Docker, Kubernetes, and cloud platforms through guided challenges",
+    "Sharpen your cloud and DevOps skills with practical, real-world newsletter. Learn Docker, Kubernetes, and cloud platforms through guided challenges",
   keywords: [
-    "cloud labs",
-    "DevOps labs",
+    "cloud newsletter",
+    "DevOps newsletter",
     "hands-on cloud learning",
-    "Docker labs",
-    "Kubernetes labs",
-    "GCP labs",
+    "Docker newsletter",
+    "Kubernetes newsletter",
+    "GCP newsletter",
     "DevOps challenges",
     "cloud skills Africa",
     "cloud training",

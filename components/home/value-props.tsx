@@ -6,7 +6,7 @@ export default function ValueProps() {
   const items = [
     {
       icon: Rocket,
-      title: "Practical, no-fluff labs",
+      title: "Practical, no-fluff newsletter",
       desc: "Build real skills with guided, hands-on scenarios you can ship at work.",
       tag: "1 new lab / week",
     },

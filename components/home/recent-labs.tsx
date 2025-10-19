@@ -1,4 +1,4 @@
-import LabCard from "../labs/lab-card";
+import NewsletterCard from "@/components/newsletter/newsletter-card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -33,7 +33,7 @@ const RecentLabs = ({ labs }: RecentLabsProps) => {
       </div>
       <div className="grid gap-4">
         {recentLabs.map((lab) => (
-          <LabCard key={lab.slug} lab={lab} />
+          <NewsletterCard key={lab.slug} lab={lab} />
         ))}
       </div>
     </section>

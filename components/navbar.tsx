@@ -12,7 +12,7 @@ import ThemeSwitcher from "./theme-switcher";
 export default function Navbar() {
   const menuItems: MenuItem[] = [
     { name: "Home", href: "/" },
-    { name: "Labs", href: "/labs" },
+    { name: "Newsletter", href: "/newsletter" },
     { name: "Blog", href: "/blog" },
     { name: "Projects", href: "/projects" },
     { name: "About", href: "/about" },

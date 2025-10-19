@@ -12,10 +12,10 @@ const NewsletterHeader = () => {
         <p className="max-w-7xl text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
           I started this newsletter to master cloud fundamentals through
           hands-on practice while sharing what I learn with fellow builders.
-          Each week, I share a practical lab every Wednesday, going through the
-          building blocks for working on more complex projects. It's my way of
-          learning by doing and connecting with others on the same journey
-          toward cloud mastery. Enter your email below to join me every week.
+          Each week, I share a practical lab every Wednesday, covering the
+          building blocks for more complex projects. It's my way of learning by
+          doing and connecting with others on the same journey toward cloud
+          mastery. Enter your email below to join me every week.
         </p>
       </div>
 

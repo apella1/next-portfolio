@@ -1,6 +1,7 @@
 "use client";
 
 import NewsletterCard from "@/components/newsletter/newsletter-card";
+import NewsletterHeader from "@/components/newsletter/newsletter-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -42,22 +43,16 @@ const NewsletterClient = ({ initialLabs }: LabsClientProps) => {
   };
 
   return (
-    <section className="container py-12 min-h-screen">
-      <div className="flex flex-col">
+    <section className="container flex flex-col items-center py-12 min-h-screen">
+      <NewsletterHeader />
+      <div className="flex flex-col" id="past-issues">
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-            Labs
-          </h1>
-          <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            Explore my labs, tutorials, and insights on various topics
-          </p>
           {publishedLabs.length > 0 && (
             <p className="text-muted-foreground">
-              Click on the tags below to filter labs by topic
+              Click on the tags below to filter by topic
             </p>
           )}
         </div>
-
         <div className="w-full max-w-4xl">
           <div className="flex flex-wrap gap-2 justify-center py-4">
             {allTags.map((tag) => (

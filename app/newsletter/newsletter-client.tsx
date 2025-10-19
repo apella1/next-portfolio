@@ -43,7 +43,7 @@ const NewsletterClient = ({ initialLabs }: LabsClientProps) => {
   };
 
   return (
-    <section className="container flex flex-col items-center py-12 min-h-screen">
+    <section className="container py-12 min-h-screen">
       <NewsletterHeader />
       <div className="flex flex-col" id="past-issues">
         <div className="space-y-2">
@@ -54,7 +54,7 @@ const NewsletterClient = ({ initialLabs }: LabsClientProps) => {
           )}
         </div>
         <div className="w-full max-w-4xl">
-          <div className="flex flex-wrap gap-2 justify-center py-4">
+          <div className="flex flex-wrap gap-2 py-4">
             {allTags.map((tag) => (
               <Badge
                 key={tag}
@@ -91,10 +91,10 @@ const NewsletterClient = ({ initialLabs }: LabsClientProps) => {
       </div>
 
       {filteredLabs.length === 0 && (
-        <div className="text-center text-muted-foreground py-12">
+        <div className="text-muted-foreground">
           {selectedTags.length > 0
             ? "No newsletter found matching the selected tags."
-            : "No newsletter available yet. Check back soon!"}
+            : "No newsletter available yet. Subscribe to get the first issue!"}
         </div>
       )}
     </section>

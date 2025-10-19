@@ -9,9 +9,13 @@ const NewsletterHeader = () => {
         <h1 className="text-2xl font-semibold tracking-tighter sm:text-4xl">
           Cloud Drills Newsletter
         </h1>
-        <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-          Join a growing circle of builders who learn through doing. One
-          hands-on labs each week. Focused and practical.
+        <p className="max-w-7xl">
+          I started this newsletter to master cloud fundamentals through
+          hands-on practice while sharing what I learn with fellow builders.
+          Each week, I share a practical lab every Wednesday, going through the
+          building block for working on more complex projects. It's my way of
+          learning by doing and connecting with others on the same journey
+          toward cloud mastery. Enter your email below to join me every week.
         </p>
       </div>
 

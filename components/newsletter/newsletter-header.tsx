@@ -19,7 +19,7 @@ const NewsletterHeader = () => {
         </p>
       </div>
 
-      <div className="max-w-md">
+      <div className="border rounded p-2 max-w-7xl">
         <EmailOctopusNewsletterForm />
       </div>
     </div>

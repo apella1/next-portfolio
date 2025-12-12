@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import EmailOctopusFooterForm from "@/components/email-octopus-footer-form";
 
 const thisYear: string = new Date().getFullYear().toString();
 
@@ -28,19 +27,19 @@ export default function Footer() {
   return (
     <footer className="w-full py-8 border-t">
       <div className="container px-4 md:px-6">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <div className="lg:col-span-1">
-            <h3 className="text-lg font-semibold">
-              Subscribe to my newsletter
-            </h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Get notified when new labs are out
-            </p>
-          </div>
-          <div className="lg:col-span-2">
-            <EmailOctopusFooterForm />
-          </div>
-        </div>
+        {/*<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">*/}
+        {/*  <div className="lg:col-span-1">*/}
+        {/*    <h3 className="text-lg font-semibold">*/}
+        {/*      Subscribe to my newsletter*/}
+        {/*    </h3>*/}
+        {/*    <p className="mt-2 text-sm text-muted-foreground">*/}
+        {/*      Get notified when new labs are out*/}
+        {/*    </p>*/}
+        {/*  </div>*/}
+        {/*  <div className="lg:col-span-2">*/}
+        {/*    <EmailOctopusFooterForm />*/}
+        {/*  </div>*/}
+        {/*</div>*/}
         <div className="mt-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
             {socialLinks.map((social) => (

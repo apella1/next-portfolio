@@ -11,11 +11,11 @@ import ThemeSwitcher from "./theme-switcher";
 
 export default function Navbar() {
   const menuItems: MenuItem[] = [
-    { name: "Home", href: "/" },
-    { name: "Newsletter", href: "/newsletter" },
+    // { name: "Home", href: "/" },
+    // { name: "Newsletter", href: "/newsletter" },
+    { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
     { name: "Projects", href: "/projects" },
-    { name: "About", href: "/about" },
   ];
 
   const pathname = usePathname();

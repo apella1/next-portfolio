@@ -2,9 +2,8 @@ import profilePic from "@/public/profile.webp";
 import { SocialIcon } from "@/utils/types";
 import Image from "next/image";
 import Link from "next/link";
-import { DiGithubBadge } from "react-icons/di";
 import { FaXTwitter } from "react-icons/fa6";
-import { FiLinkedin } from "react-icons/fi";
+import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
 import WakatimeWidget from "@/components/about/wakatime";
 import Certifications from "@/components/about/certifications";
@@ -14,7 +13,7 @@ const socialIcons: SocialIcon[] = [
   {
     name: "Github",
     href: "https://github.com/apella1",
-    icon: <DiGithubBadge className="h-5 w-5" />,
+    icon: <FiGithub className="h-5 w-5" />,
   },
   {
     name: "LinkedIn",

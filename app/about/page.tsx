@@ -38,14 +38,21 @@ const AboutPage = () => {
         </section>
         <div className="space-y-2">
           <h2 className="text-xl font-semibold tracking-tighter sm:text-3xl">
-            About Me
+            About
           </h2>
-          <p className="text-base">
-            Hi. I'm John Apella. I'm a software engineer currently leaning
-            towards DevOps and site reliability engineering. I also volunteer my
-            skills to causes I care about, which you’ll find on my LinkedIn. If
-            you have any questions based on what I talk about here or just want
-            to talk, you can reach out on X or LinkedIn, info below.
+          <p className="text-lg text-start">
+            Hi. I'm John Apella, a software engineer from Nairobi, Kenya. I
+            mainly work with technologies around the JVM ecosystem with a focus
+            on Spring Boot using Kotlin as my preferred language. I also
+            occasionally use Java. I work with cloud technologies with a focus
+            on Google Cloud Platform, exploring the depths of networking and
+            cloud security.
+          </p>
+          <p className="text-lg text-start">
+            When I'm not programming, you can find me in a track running or
+            playing basketball. If you have any questions based on what I talk
+            about here or just want to talk, you can reach out on X or LinkedIn,
+            info below.
           </p>
         </div>
 

@@ -40,7 +40,7 @@ export default function Footer() {
         {/*    <EmailOctopusFooterForm />*/}
         {/*  </div>*/}
         {/*</div>*/}
-        <div className="mt-8 flex items-center justify-between">
+        <div className="mt-8 flex flex-col space-y-3 lg:space-y-0 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-4">
             {socialLinks.map((social) => (
               <Link
@@ -48,14 +48,14 @@ export default function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="hover:text-primary transition-colors"
               >
                 <social.icon className="h-5 w-5" />
                 <span className="sr-only">{social.label}</span>
               </Link>
             ))}
           </div>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm">
             &copy; {thisYear} John Apella. All rights reserved.
           </p>
         </div>

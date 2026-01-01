@@ -18,7 +18,7 @@ export default function Certifications({ certifications }: Props) {
           <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
             My Certifications
           </h3>
-          <p className="text-sm text-muted-foreground mb-4">
+          <p className="text-sm mb-4">
             Professional certifications and achievements. Click on any badge to
             view verification details.
           </p>
@@ -95,9 +95,7 @@ export default function Certifications({ certifications }: Props) {
                 ) : (
                   <span>{cert.title}</span>
                 )}
-                <span className="text-muted-foreground">
-                  {" "}- {cert.issuer}
-                </span>
+                <span className="text-muted-foreground"> - {cert.issuer}</span>
               </li>
             ))}
           </ul>

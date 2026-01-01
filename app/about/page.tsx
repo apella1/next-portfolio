@@ -29,7 +29,7 @@ const socialIcons: SocialIcon[] = [
 
 const AboutPage = () => {
   return (
-    <div className="container py-12 min-h-screen">
+    <div className="py-12 min-h-screen">
       <div className="flex flex-col items-center justify-center space-y-4 text-center">
         <section className="px-4">
           <div className="w-fit rounded-full">
@@ -37,10 +37,10 @@ const AboutPage = () => {
           </div>
         </section>
         <div className="space-y-2">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+          <h2 className="text-xl font-semibold tracking-tighter sm:text-3xl">
             About Me
           </h2>
-          <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed max-w-5xl">
+          <p className="text-base">
             Hi. I'm John Apella. I'm a software engineer currently leaning
             towards DevOps and site reliability engineering. I also volunteer my
             skills to causes I care about, which you’ll find on my LinkedIn. If
@@ -70,14 +70,11 @@ const AboutPage = () => {
           ))}
         </div>
 
-        <div className="w-full text-left pt-6 lg:px-24 2xl:px-60">
+        <div className="w-full text-left pt-6">
           <Certifications certifications={certifications} />
         </div>
 
-        <div
-          className="w-full text-left pt-6 lg:px-24 2xl:px-60"
-          id="garden-telemetry"
-        >
+        <div className="w-full text-left pt-6" id="garden-telemetry">
           <h3 className="text-xl font-semibold mb-2">
             Coding Stats - Powered by Wakatime
           </h3>

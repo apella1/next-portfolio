@@ -34,7 +34,7 @@ export default function Projects() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+            <h2 className="text-xl font-bold tracking-tighter sm:text-3xl">
               All Projects
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -54,7 +54,7 @@ export default function Projects() {
                     `cursor-pointer transition-colors`,
                     selectedTech.includes(tech)
                       ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                      : "hover:bg-muted"
+                      : "hover:bg-muted",
                   )}
                   onClick={() => toggleTech(tech)}
                 >
@@ -75,7 +75,7 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="mx-auto grid gap-8 py-12 lg:grid-cols-2 xl:grid-cols-3">
+        <div className="mx-auto grid gap-8 py-12 lg:grid-cols-2">
           {filteredProjects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}

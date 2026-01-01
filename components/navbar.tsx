@@ -28,9 +28,7 @@ export default function Navbar() {
           key={item.href}
           href={item.href}
           className={`relative py-2 text-base transition-colors hover:text-primary ${
-            pathname === item.href
-              ? "text-primary font-medium"
-              : "text-muted-foreground"
+            pathname === item.href ? "text-primary font-medium" : ""
           }`}
           onClick={() => setIsOpen(false)}
         >
@@ -49,9 +47,7 @@ export default function Navbar() {
               key={homeItem.href}
               href={homeItem.href}
               className={`relative py-2 text-base transition-colors hover:text-primary ${
-                pathname === homeItem.href
-                  ? "text-primary font-medium"
-                  : "text-muted-foreground"
+                pathname === homeItem.href ? "text-primary font-medium" : ""
               }`}
               onClick={() => setIsOpen(false)}
             >
@@ -72,7 +68,19 @@ export default function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="w-[240px] sm:w-[280px]">
-                <div className="flex flex-col space-y-4 mt-8">
+                <div className="flex flex-col mt-8">
+                  <Link
+                    key={homeItem.href}
+                    href={homeItem.href}
+                    className={`relative text-base transition-colors hover:text-primary ${
+                      pathname === homeItem.href
+                        ? "text-primary font-medium"
+                        : ""
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {homeItem.name}
+                  </Link>
                   <NavLinks />
                 </div>
               </SheetContent>

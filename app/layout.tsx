@@ -8,13 +8,15 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "John Apella",
+  title: "John Apella | Software Engineer",
   description: "",
   keywords: [
     "DevOps Engineer",
     "Docker Specialist",
     "Kubernetes Specialist",
     "GCP Specialist",
+    "Spring Boot",
+    "Backend Software Engineer",
   ],
 };
 
@@ -25,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} max-w-4xl mx-auto`}>
+      <body className={`${inter.className} max-w-4xl mx-auto p-4`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

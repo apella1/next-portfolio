@@ -1,6 +1,13 @@
-import { redirect } from "next/navigation";
+import RecentPosts from "@/components/home/recent-posts";
+import { getPosts } from "@/utils/posts";
+import HomeHeader from "@/components/home/home-header";
 
-export default function Home() {
-  // server-side redirect to the About page
-  redirect("/about");
+export default async function Home() {
+  const posts = await getPosts();
+  return (
+    <main className="min-h-screen">
+      <HomeHeader />
+      <RecentPosts posts={posts} />
+    </main>
+  );
 }

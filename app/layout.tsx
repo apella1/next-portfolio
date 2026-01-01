@@ -9,18 +9,12 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "John Apella",
-  description:
-    "Sharpen your cloud and DevOps skills with practical, real-world newsletter. Learn Docker, Kubernetes, and cloud platforms through guided challenges",
+  description: "",
   keywords: [
-    "cloud newsletter",
-    "DevOps newsletter",
-    "hands-on cloud learning",
-    "Docker newsletter",
-    "Kubernetes newsletter",
-    "GCP newsletter",
-    "DevOps challenges",
-    "cloud skills Africa",
-    "cloud training",
+    "DevOps Engineer",
+    "Docker Specialist",
+    "Kubernetes Specialist",
+    "GCP Specialist",
   ],
 };
 
@@ -31,9 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} px-4 md:px-6 lg:px-8 xl:px-16 2xl:px-32`}
-      >
+      <body className={`${inter.className} max-w-4xl mx-auto`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

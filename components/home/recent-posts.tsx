@@ -24,7 +24,7 @@ const RecentPosts = ({ posts }: RecentPostsProps) => {
   return (
     <section className="container space-y-6 py-8 md:py-10">
       <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-bold tracking-tight">Recent Posts</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">Recent Posts</h2>
         <Button asChild variant="outline" size="lg">
           <Link href="/blog">
             View All Posts <ArrowRight className="ml-2 h-4 w-4" />

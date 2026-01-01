@@ -11,13 +11,13 @@ import ThemeSwitcher from "./theme-switcher";
 
 export default function Navbar() {
   const menuItems: MenuItem[] = [
-    // { name: "Home", href: "/" },
     // { name: "Newsletter", href: "/newsletter" },
     { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
     { name: "Projects", href: "/projects" },
   ];
 
+  const homeItem = { name: "Home", href: "/" };
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -45,10 +45,24 @@ export default function Navbar() {
       <nav className="container flex h-14 items-center">
         <div className="flex w-full justify-between items-center">
           <div className="hidden lg:flex">
-            <NavLinks />
+            <Link
+              key={homeItem.href}
+              href={homeItem.href}
+              className={`relative py-2 text-base transition-colors hover:text-primary ${
+                pathname === homeItem.href
+                  ? "text-primary font-medium"
+                  : "text-muted-foreground"
+              }`}
+              onClick={() => setIsOpen(false)}
+            >
+              {homeItem.name}
+            </Link>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex justify-between space-x-4">
+            <div className="hidden lg:flex">
+              <NavLinks />
+            </div>
             <ThemeSwitcher />
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="lg:hidden">

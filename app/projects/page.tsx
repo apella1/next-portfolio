@@ -37,9 +37,9 @@ export default function Projects() {
             <h2 className="text-xl font-bold tracking-tighter sm:text-3xl">
               All Projects
             </h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              A comprehensive collection of my work, showcasing various
-              technologies and solutions.
+            <p className="md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              A collection of my work, showcasing various technologies and
+              solutions.
             </p>
             <p>Click on the badges below to filter projects by technology.</p>
           </div>

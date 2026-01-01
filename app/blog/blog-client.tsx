@@ -48,7 +48,7 @@ const BlogClient = ({ initialPosts }: BlogClientProps) => {
           <h1 className="text-xl font-bold tracking-tighter sm:text-3xl">
             Blog Posts
           </h1>
-          <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+          <p className="md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             Explore my thoughts, tutorials, and insights on various topics
           </p>
           <p className="text-muted-foreground">

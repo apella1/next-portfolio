@@ -8,6 +8,11 @@ import { Button } from "@/components/ui/button";
 import WakatimeWidget from "@/components/about/wakatime";
 import Certifications from "@/components/about/certifications";
 import { certifications } from "@/data/certifications";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About John Apella",
+};
 
 const socialIcons: SocialIcon[] = [
   {

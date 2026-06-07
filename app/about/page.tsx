@@ -46,19 +46,27 @@ const AboutPage = () => {
             About
           </h2>
           <p className="text-lg text-start">
-            Hi. I'm John Apella, a software engineer from Nairobi, Kenya. I
-            mainly work with technologies around the JVM ecosystem with a focus
-            on Spring Boot using Kotlin as my preferred language. I also
-            occasionally use Java. I work with cloud technologies with a focus
-            on Google Cloud Platform, exploring the depths of networking and
-            cloud security.
+            Hi, I'm John Apella, a Cloud Security Engineer (Google Cloud
+            Platform) in transition from Backend Software Development and DevOps
+            Engineering. My background is in designing, building, and operating
+            backend systems using Kotlin, Spring Boot, Docker, Kubernetes, and
+            Google Cloud Platform. Working across software development and
+            infrastructure has given me a strong understanding of how modern
+            applications are built, deployed, and maintained in production
+            environments.
           </p>
           <p className="text-lg text-start">
-            When I'm not programming, you can find me in a track running or
-            playing basketball. If you have any questions based on what I talk
-            about here or just want to talk, you can reach out on X or LinkedIn,
-            info below.
+            Today, my primary focus is cloud security. I'm developing expertise
+            in cloud architecture, networking, identity and access management,
+            Kubernetes security, observability, and infrastructure hardening.
+            I'm particularly interested in how security can be integrated into
+            engineering workflows to create systems that are secure, reliable,
+            and scalable by design. This website documents my projects,
+            experiments, and lessons learned as I continue building practical
+            experience at the intersection of cloud infrastructure, security,
+            and software engineering.
           </p>
+          <p className="text-lg text-start">I'm based in Nairobi, Kenya.</p>
         </div>
 
         <div className="flex flex-col space-y-1.5 md:space-y-0 md:flex-row md:items-center md:gap-4 md:px-4 mt-8">

@@ -8,9 +8,8 @@ export default function HomeHeader() {
         <Image src={profilePic} alt="" className="w-44 rounded-full" />
       </div>
       <h1 className="text-lg">
-        Hi, I'm John Apella. I'm a software engineer working with technologies
-        within the JVM ecosystem and cloud with a focus on Google Cloud
-        Platform.
+        Hi, I'm John Apella. I'm a software engineer moving into cloud security,
+        building on 4+ years in fullstack and DevOps on GCP.
       </h1>
     </header>
   );

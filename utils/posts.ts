@@ -1,6 +1,6 @@
+import { Post } from "@/types/post";
 import { promises as fs } from "fs";
 import path from "path";
-import { Post } from "@/types/post";
 
 export async function getPosts(): Promise<Post[]> {
   const postsDirectory = path.join(process.cwd(), "app", "posts");
@@ -13,7 +13,7 @@ export async function getPosts(): Promise<Post[]> {
     entries
       .filter((entry) => entry.isFile() && entry.name === "page.mdx")
       .map(async (entry) => {
-        const postPath = path.join(entry.path, entry.name);
+        const postPath = path.join(entry.parentPath, entry.name);
         const fileContent = await fs.readFile(postPath, "utf-8");
 
         // extract metadata from MDX file

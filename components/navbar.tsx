@@ -8,13 +8,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import ThemeSwitcher from "./theme-switcher";
+import { projects } from "@/data/projects";
 
 export default function Navbar() {
   const menuItems: MenuItem[] = [
     // { name: "Newsletter", href: "/newsletter" },
     { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
-    { name: "Projects", href: "/projects" },
+    ...(projects.length > 0 ? [{ name: "Projects", href: "/projects" }] : []),
   ];
 
   const homeItem = { name: "Home", href: "/" };

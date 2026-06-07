@@ -8,7 +8,9 @@ export interface Project {
   featured: boolean;
 }
 
-export const projects: Project[] = [
+export const projects: Project[] = [];
+
+export const softwareProjects: Project[] = [
   {
     title: "Zima",
     description:

@@ -7,9 +7,8 @@ export default function HomeHeader() {
       <div className="w-fit rounded-full">
         <Image src={profilePic} alt="" className="w-44 rounded-full" />
       </div>
-      <h1 className="text-lg">
-        Hi, I'm John Apella. I'm a software engineer moving into cloud security,
-        building on 4+ years in fullstack and DevOps on GCP.
+      <h1 className="text-2xl">
+        Cloud Security Engineer (Google Cloud Platform)
       </h1>
     </header>
   );

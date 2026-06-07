@@ -12,10 +12,8 @@ async function getPostSlugs(dir: string) {
   return entries
     .filter((entry) => entry.isFile() && entry.name === "page.mdx")
     .map((entry) => {
-      const relativePath = path.relative(
-        dir,
-        path.join(path.dirname(entry.path), entry.name),
-      );
+      const entryDir = (entry as any).parentPath ?? (entry as any).path;
+      const relativePath = path.relative(dir, path.join(entryDir, entry.name));
       return path.dirname(relativePath);
     })
     .map((slug) => slug.replace(/\\/g, "/"));

@@ -13,7 +13,8 @@ export async function getPosts(): Promise<Post[]> {
     entries
       .filter((entry) => entry.isFile() && entry.name === "page.mdx")
       .map(async (entry) => {
-        const postPath = path.join(entry.parentPath, entry.name);
+        const entryDir = (entry as any).parentPath ?? (entry as any).path;
+        const postPath = path.join(entryDir, entry.name);
         const fileContent = await fs.readFile(postPath, "utf-8");
 
         // extract metadata from MDX file

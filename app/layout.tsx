@@ -8,16 +8,9 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "John Apella | Software Engineer",
+  title: "John Apella | Cloud Security Engineer",
   description: "",
-  keywords: [
-    "DevOps Engineer",
-    "Docker Specialist",
-    "Kubernetes Specialist",
-    "GCP Specialist",
-    "Spring Boot",
-    "Backend Software Engineer",
-  ],
+  keywords: ["Google Cloud Platform", "Cloud Security Engineer"],
 };
 
 export default function RootLayout({

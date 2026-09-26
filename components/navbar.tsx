@@ -115,7 +115,9 @@ export default function Navbar() {
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
-                    {homeItem.name}
+                    <span>John</span>{" "}
+                    <span className="text-red-600">Apella</span>
+                    {/*{homeItem.name}*/}
                   </Link>
                   <NavLinks />
                 </div>

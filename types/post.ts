@@ -8,4 +8,5 @@ export type Post = {
   author: string;
   tags?: string[];
   content: string;
+  type: "post" | "note";
 };

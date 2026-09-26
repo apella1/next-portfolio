@@ -41,6 +41,7 @@ export async function getNotes(): Promise<Post[]> {
           author: metadata.author,
           tags: metadata.tags ?? [],
           content: fileContent,
+          type: "note" as const,
         } as Post;
       }),
   );

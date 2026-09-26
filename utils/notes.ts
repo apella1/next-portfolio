@@ -2,14 +2,14 @@ import { Post } from "@/types/post";
 import { promises as fs } from "fs";
 import path from "path";
 
-export async function getPosts(): Promise<Post[]> {
-  const postsDirectory = path.join(process.cwd(), "app", "posts");
-  const entries = await fs.readdir(postsDirectory, {
+export async function getNotes(): Promise<Post[]> {
+  const notesDirectory = path.join(process.cwd(), "app", "notes");
+  const entries = await fs.readdir(notesDirectory, {
     recursive: true,
     withFileTypes: true,
   });
 
-  const posts = await Promise.all(
+  const notes = await Promise.all(
     entries
       .filter((entry) => entry.isFile() && entry.name === "page.mdx")
       .map(async (entry) => {
@@ -41,12 +41,12 @@ export async function getPosts(): Promise<Post[]> {
           author: metadata.author,
           tags: metadata.tags ?? [],
           content: fileContent,
-          type: "post" as const,
+          type: "note" as const,
         } as Post;
       }),
   );
 
-  return posts.sort(
+  return notes.sort(
     (a, b) =>
       new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );

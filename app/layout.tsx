@@ -23,8 +23,8 @@ export default function RootLayout({
       <body className={`${inter.className} max-w-4xl mx-auto p-4`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Navbar />

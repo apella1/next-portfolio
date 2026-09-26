@@ -11,7 +11,7 @@ export default function HomeIntro() {
         </p>
         <p>
           I'm currently focused on information security projects working with
-          metasploit and Burp Suite to get practice with offensive tools.
+          Metasploit and Burp Suite to get practice with offensive tools.
         </p>
         <p>I also work with the cloud, currently focusing on GCP.</p>
       </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import profilePic from "@/public/profile.webp";
+import HomeIntro from "@/components/home/home-intro";
 
 export default function HomeHeader() {
   return (
@@ -7,9 +8,7 @@ export default function HomeHeader() {
       <div className="w-fit rounded-full">
         <Image src={profilePic} alt="" className="w-44 rounded-full" />
       </div>
-      <h1 className="text-2xl">
-        Cloud Security Engineer (Google Cloud Platform)
-      </h1>
+      <HomeIntro />
     </header>
   );
 }

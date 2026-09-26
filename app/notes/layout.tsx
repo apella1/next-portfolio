@@ -1,4 +1,4 @@
-export default function PostLayout({
+export default function NotesLayout({
   children,
 }: {
   children: React.ReactNode;

@@ -66,7 +66,7 @@ const RecentPostsAndNotes = ({ posts, notes }: RecentPostsProps) => {
             <div className="mb-6">
               {featuredPost.image && (
                 <Link href={`/posts/${featuredPost.slug}`}>
-                  <div className="relative w-full aspect-[16/9] mb-3 overflow-hidden rounded-md bg-muted">
+                  <div className="relative w-full aspect-video mb-3 overflow-hidden rounded-md bg-muted">
                     <Image
                       src={featuredPost.image}
                       alt={featuredPost.title}

@@ -87,7 +87,7 @@ const BlogClient = ({ initialPosts, initialNotes }: BlogClientProps) => {
           Browse by topic:
         </span>
         <Badge
-          variant={selectedTags.length === 0 ? "default" : "outline"}
+          variant={selectedTags.length === 0 ? "default" : "outline-solid"}
           className={cn(
             "cursor-pointer transition-colors",
             selectedTags.length === 0
@@ -101,7 +101,7 @@ const BlogClient = ({ initialPosts, initialNotes }: BlogClientProps) => {
         {allTags.map((tag) => (
           <Badge
             key={tag}
-            variant={selectedTags.includes(tag) ? "default" : "outline"}
+            variant={selectedTags.includes(tag) ? "default" : "outline-solid"}
             className={cn(
               "cursor-pointer transition-colors",
               selectedTags.includes(tag)

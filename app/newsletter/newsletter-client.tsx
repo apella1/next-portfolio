@@ -58,7 +58,7 @@ const NewsletterClient = ({ initialLabs }: LabsClientProps) => {
             {allTags.map((tag) => (
               <Badge
                 key={tag}
-                variant={selectedTags.includes(tag) ? "default" : "outline"}
+                variant={selectedTags.includes(tag) ? "default" : "outline-solid"}
                 className={cn(
                   `cursor-pointer transition-colors`,
                   selectedTags.includes(tag)

@@ -1,3 +1,5 @@
+import { ArticleHeader } from "@/components/mdx/article-header";
+
 export const metadata = {
     title: "How I Set Up My Email Newsletter",
     publishedAt: "2025-10-17",
@@ -9,7 +11,12 @@ export const metadata = {
     image: "/blog.png",
 };
 
-<h2>How I Set Up my Email Newsletter</h2>
+<ArticleHeader
+    title={metadata.title}
+    subtitle={metadata.description}
+    author={metadata.author}
+    publishedAt={metadata.publishedAt}
+/>
 
 <section>
     <p>

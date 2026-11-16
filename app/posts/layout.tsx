@@ -5,7 +5,7 @@ export default function PostLayout({
 }) {
   return (
     <article className="py-8 min-h-[80vh] px-4">
-      <div className="prose prose-gray dark:prose-invert max-w-none text-xl leading-20">
+      <div className="prose prose-gray dark:prose-invert max-w-none text-xl">
         {children}
       </div>
     </article>

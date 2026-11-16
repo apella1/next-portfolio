@@ -46,7 +46,7 @@ export default function ProjectsClient() {
               {allTechnologies.map((tech) => (
                 <Badge
                   key={tech}
-                  variant={selectedTech.includes(tech) ? "default" : "outline-solid"}
+                  variant={selectedTech.includes(tech) ? "default" : "outline"}
                   className={cn(
                     "cursor-pointer transition-colors",
                     selectedTech.includes(tech)

@@ -1,24 +1,21 @@
 import type { ComponentPropsWithoutRef } from "react";
 import {
   Accordion,
+  AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  AccordionContent,
 } from "@/components/ui/accordion";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Anchor,
-  Pre,
   Callout,
   Code,
   HeadingProps,
-  ParagraphProps,
-  ListProps,
   ListItemProps,
+  ListProps,
+  ParagraphProps,
+  Pre,
 } from "@/components/mdx/mdx-client";
-
-
-
 
 const components = {
   h1: (props: HeadingProps) => (
@@ -38,7 +35,7 @@ const components = {
   ),
   h4: (props: HeadingProps) => <h4 className="font-medium" {...props} />,
   p: (props: ParagraphProps) => (
-    <p className="text-gray-800 dark:text-zinc-300 leading-snug" {...props} />
+    <p className="text-gray-800 dark:text-zinc-300 text-lg/9" {...props} />
   ),
   ol: (props: ListProps) => (
     <ol

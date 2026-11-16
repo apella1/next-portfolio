@@ -41,6 +41,7 @@ export async function getPosts(): Promise<Post[]> {
           author: metadata.author,
           tags: metadata.tags ?? [],
           content: fileContent,
+          type: "post" as const,
         } as Post;
       }),
   );

@@ -1,11 +1,12 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { Analytics } from "@vercel/analytics/react";
-import { Inter } from "next/font/google";
+import { Geist, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
+const geist = Geist({ subsets: ["latin"] });
 
 export const metadata = {
   title: "John Apella | Cloud Security Engineer",
@@ -23,8 +24,8 @@ export default function RootLayout({
       <body className={`${inter.className} max-w-4xl mx-auto p-4`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Navbar />
